@@ -94,19 +94,17 @@ public class WikiClient {
                 String selectCategorySql = String.format(
                         "SELECT category.id, category.title, category.translation, category.level from page_categories " +
                         "RIGHT JOIN pages category ON category.id = page_categories.category_id " +
-                        "WHERE (category.level = 1 OR category.level = 2) AND page_categories.page_id = %d AND category.language = %d",
+                        "WHERE category.level IN (1, 2, 3, 4) AND page_categories.page_id = %d AND category.language = %d",
                         page.id, languageCode);
                 ResultSet pageCategoryResult = dbQuery(selectCategorySql);
+                ArrayList<WikiCategory>[] categoryArray = new ArrayList[]{
+                        page.l1_categories, page.l2_categories, page.l3_categories, page.l4_categories};
                 while(pageCategoryResult.next()){
                     WikiCategory category = new WikiCategory();
                     category.id = pageCategoryResult.getInt("id");
                     category.title = pageCategoryResult.getString("title");
                     category.titleTranslation = pageCategoryResult.getString("translation");
-                    if(pageCategoryResult.getInt("level") == 1){
-                        page.l1_categories.add(category);
-                    }else{
-                        page.l2_categories.add(category);
-                    }
+                    categoryArray[pageCategoryResult.getInt("level")-1].add(category);
                 }
 
                 pages.add(page);

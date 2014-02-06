@@ -34,7 +34,8 @@ public class HotPagesToolkit {
 
                 line += "|" + page.titleTranslation;
 
-                ArrayList<WikiCategory>[] categoriesArray = new ArrayList[]{page.l1_categories, page.l2_categories};
+                ArrayList<WikiCategory>[] categoriesArray = new ArrayList[]{
+                        page.l1_categories, page.l2_categories, page.l3_categories, page.l4_categories};
                 for(ArrayList<WikiCategory> categories : categoriesArray){
                     String categoryStr = "";
                     for(int i = 0; i < categories.size(); i++){
@@ -46,8 +47,8 @@ public class HotPagesToolkit {
                 }
                 writer.println(line);
             };
-
-
+            writer.println("");
+            writer.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
