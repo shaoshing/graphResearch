@@ -1,1 +1,3 @@
 out
+output/*
+configs/*.property

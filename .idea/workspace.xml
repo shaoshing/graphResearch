@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7367f9aa-54b1-49c7-8189-af0ac9e28cc5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/wikipedia.property" afterPath="$PROJECT_DIR$/configs/wikipedia.property" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Run.java" afterPath="$PROJECT_DIR$/src/toolkits/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Wikipedia.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,53 +67,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="wikipedia.property" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configs/wikipedia.property">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/toolkits/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="58" selection-start="709" selection-end="709" vertical-scroll-proportion="0.74701196" vertical-offset="0" max-vertical-offset="555">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HotPagesToolkit.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="62" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="930">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="WikiClient.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="74" selection-start="4426" selection-end="4426" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2340">
+            <state line="40" column="30" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2340">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2076#2086#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wikipedia.property" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/configs/wikipedia.property">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="23" selection-start="0" selection-end="234" vertical-scroll-proportion="0.119521916" vertical-offset="0" max-vertical-offset="502">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Run.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Run.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="13" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="629">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiPage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="15" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiCategory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="28" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -133,17 +126,22 @@
         <option value="$PROJECT_DIR$/src/Wiki.java" />
         <option value="$PROJECT_DIR$/src/com/wikipedia/iub/Wiki.java" />
         <option value="$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java" />
-        <option value="$PROJECT_DIR$/configs/wikipedia.property" />
         <option value="$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java" />
         <option value="$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java" />
+        <option value="$PROJECT_DIR$/configs/wikipedia.property.example" />
         <option value="$PROJECT_DIR$/src/Run.java" />
+        <option value="$PROJECT_DIR$/configs/wikipedia.property" />
+        <option value="$PROJECT_DIR$/src/toolkits/Run.java" />
+        <option value="$PROJECT_DIR$/src/toolkits/EventToolkit.java" />
+        <option value="$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java" />
+        <option value="$PROJECT_DIR$/src/toolkits/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="56" />
-    <option name="y" value="31" />
-    <option name="width" value="1384" />
+    <option name="x" value="65" />
+    <option name="y" value="27" />
+    <option name="width" value="1366" />
     <option name="height" value="860" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -203,6 +201,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toolkits" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -219,6 +221,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="iub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wikipedia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wikipedia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="output" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -261,9 +277,9 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.Run">
-    <configuration default="false" name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Run" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="toolkits.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -406,11 +422,11 @@
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Application.Run" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.Run" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -445,7 +461,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="56" y="31" width="1384" height="860" extended-state="0" />
+    <frame x="65" y="27" width="1366" height="860" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -458,13 +474,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1954612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32996207" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -494,16 +510,46 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="15" selection-start="542" selection-end="542" vertical-scroll-proportion="0.687251" vertical-offset="0" max-vertical-offset="502">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+        <state line="7" column="28" selection-start="146" selection-end="146" vertical-scroll-proportion="0.20916335" vertical-offset="0" max-vertical-offset="502">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/wikipedia.property.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="0" selection-end="138" vertical-scroll-proportion="0.17928287" vertical-offset="0" max-vertical-offset="502">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/wikipedia.property">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="62" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="930">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="74" selection-start="4426" selection-end="4426" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2340">
+        <state line="40" column="30" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2340">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2076#2086#0" expanded="true" />
@@ -511,27 +557,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java">
+    <entry file="file://$PROJECT_DIR$/src/toolkits/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="15" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Run.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="629">
+        <state line="25" column="58" selection-start="709" selection-end="709" vertical-scroll-proportion="0.74701196" vertical-offset="0" max-vertical-offset="555">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/wikipedia.property">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="23" selection-start="0" selection-end="234" vertical-scroll-proportion="0.119521916" vertical-offset="0" max-vertical-offset="502">
-          <folding />
         </state>
       </provider>
     </entry>

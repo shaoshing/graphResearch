@@ -1,0 +1,8 @@
+database.host=localhost
+database.name=wiki
+database.port=3306
+
+database.user=root
+# Leave blank if db has no password
+database.password=
+
