@@ -107,6 +107,28 @@ public class WikiClient {
                     categoryArray[pageCategoryResult.getInt("level")-1].add(category);
                 }
 
+                // Find indirect l1 and l2 categories
+                String indirectCategorySql = "SELECT p.id, p.title, p.translation, p.level " +
+                        "FROM page_categories pc " +
+                        "RIGHT JOIN main_category_subcategories mcs ON mcs.subcategory_id = pc.category_id AND mcs.language = %d " +
+                        "RIGHT JOIN pages p ON mcs.%s_category_id = p.id AND p.language = %d " +
+                        "WHERE pc.page_id = %d AND pc.language = %d GROUP BY p.id";
+                ResultSet l1CategoryResult = dbQuery(String.format(indirectCategorySql, languageCode, "l1", languageCode, page.id, languageCode));
+                ResultSet l2CategoryResult = dbQuery(String.format(indirectCategorySql, languageCode, "l2", languageCode, page.id, languageCode));
+                for(ResultSet categoryResult :(new ResultSet[]{l1CategoryResult, l2CategoryResult})){
+                    while(categoryResult.next()){
+                        WikiCategory category = new WikiCategory();
+                        category.id = categoryResult.getInt("id");
+                        category.title = categoryResult.getString("title");
+                        category.titleTranslation = categoryResult.getString("translation");
+                        if(categoryResult.getInt("level") == 1){
+                            page.indirect_l1_categories.add(category);
+                        }else{
+                            page.indirect_l2_categories.add(category);
+                        }
+                    }
+                }
+
                 pages.add(page);
             }
 

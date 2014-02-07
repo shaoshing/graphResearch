@@ -14,8 +14,6 @@ import java.util.ArrayList;
  * Created by shaoshing on 2/6/14.
  */
 public class HotPagesToolkit {
-
-
     static final int FIELD_INDEX_ID = 0;
     static final int FIELD_INDEX_TITLE = 1;
     public static void generateHotPagesTxt(String hotPagesFile){
@@ -35,7 +33,8 @@ public class HotPagesToolkit {
                 line += "|" + page.titleTranslation;
 
                 ArrayList<WikiCategory>[] categoriesArray = new ArrayList[]{
-                        page.l1_categories, page.l2_categories, page.l3_categories, page.l4_categories};
+                        page.l1_categories, page.l2_categories,
+                        page.indirect_l1_categories, page.indirect_l2_categories};
                 for(ArrayList<WikiCategory> categories : categoriesArray){
                     String categoryStr = "";
                     for(int i = 0; i < categories.size(); i++){

@@ -21,10 +21,16 @@ public class WikiPage {
     public ArrayList<WikiCategory> l3_categories;
     public ArrayList<WikiCategory> l4_categories;
 
+    public ArrayList<WikiCategory> indirect_l1_categories;
+    public ArrayList<WikiCategory> indirect_l2_categories;
+
     public WikiPage(){
         this.l1_categories = new ArrayList<WikiCategory>();
         this.l2_categories = new ArrayList<WikiCategory>();
         this.l3_categories = new ArrayList<WikiCategory>();
         this.l4_categories = new ArrayList<WikiCategory>();
+
+        this.indirect_l1_categories = new ArrayList<WikiCategory>();
+        this.indirect_l2_categories = new ArrayList<WikiCategory>();
     }
 }
