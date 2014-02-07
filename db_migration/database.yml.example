@@ -1,0 +1,17 @@
+en_source_host: 127.0.0.1
+en_source_username: root
+en_source_password:
+en_source_port:
+en_source_database: db
+
+zh_source_host: 127.0.0.1
+zh_source_username: root
+zh_source_password:
+zh_source_port:
+zh_source_database: db
+
+dest_host: 127.0.0.1
+dest_username: root
+dest_password:
+dest_port:
+dest_database: db

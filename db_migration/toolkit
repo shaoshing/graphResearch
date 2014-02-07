@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+require './helpers.rb'
+require './conversion.rb'
+require './category.rb'
+require './hashtag.rb'
+require './page.rb'
+
+force = ARGV.include?("-f")
+case ARGV.first
+when "convert"
+  Conversion.do(force)
+when "fetch"
+  dest_db = SQL.connect("dest")
+  Page.fetch_content(dest_db, force)
+when "category"
+  Category.do(force)
+when "hashtag"
+  Hashtag.do
+else
+  puts "Unknown command."
+end
