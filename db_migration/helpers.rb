@@ -46,11 +46,6 @@ class Wiki
     return if pages.size == 0
 
     page_ids = pages.collect{|p| p["page_id"]}
-    id_map_redirected_id = {}
-    redirects = source_db.query("SELECT rd_from, page_id FROM redirect
-      RIGHT JOIN page ON redirect.rd_title = page.page_title AND redirect.rd_namespace = page.page_namespace
-      WHERE rd_from IN (#{page_ids.join(", ")})")
-    redirects.each{|r| id_map_redirected_id[r["rd_from"]] = r["page_id"] }
 
     page_sql_values = pages.reject{|page| hidden_category_ids.include?(page["page_id"]) }.collect do |page|
       title_translation, page_type = yield(page)
@@ -68,11 +63,10 @@ class Wiki
         #{page_type},
         #{lang},
         "#{SQL.escape(page["page_title"])}",
-        "#{SQL.escape(title_translation)}",
-        #{id_map_redirected_id[page["page_id"]] || "NULL"}
+        "#{SQL.escape(title_translation)}"
       )]
     end.compact.join(",")
-    dest_db.query(%[ INSERT IGNORE INTO pages (id, type, language, title, translation, redirect_to_id) VALUES #{page_sql_values};])
+    dest_db.query(%[ INSERT IGNORE INTO pages (id, type, language, title, translation) VALUES #{page_sql_values};])
   end
 
   def self.create_page_categories(source_db, page_ids, lang, dest_db, hidden_category_ids)

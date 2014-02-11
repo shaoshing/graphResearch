@@ -52,7 +52,6 @@ class Conversion
       `type` int(3) unsigned NOT NULL DEFAULT '0',
       `title` varchar(#{MAX_TITLE_LENGTH}) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
       `translation` varchar(#{MAX_TITLE_LENGTH}) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
-      `redirect_to_id` int(10) unsigned,
       KEY `page_title` (`title`),
       KEY `page_id_language` (`id`, `language`),
       UNIQUE KEY `page_id_language_type` (`id`, `type`, `language`)

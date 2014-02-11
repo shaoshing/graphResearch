@@ -7,6 +7,7 @@ require './conversion.rb'
 require './category.rb'
 require './hashtag.rb'
 require './page.rb'
+require './redirection.rb'
 
 force = ARGV.include?("-f")
 case ARGV.first
@@ -19,6 +20,8 @@ when "category"
   Category.do(force)
 when "hashtag"
   Hashtag.do
+when "redirection"
+  Redirection.do(force)
 else
   puts "Unknown command."
 end
