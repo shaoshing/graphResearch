@@ -7,9 +7,11 @@ require './conversion.rb'
 require './category.rb'
 require './hashtag.rb'
 require './page.rb'
+require './page_count.rb'
 require './redirection.rb'
 
 force = ARGV.include?("-f")
+verbose = ARGV.include?("-v")
 case ARGV.first
 when "convert"
   Conversion.do(force)
@@ -22,6 +24,8 @@ when "hashtag"
   Hashtag.do
 when "redirection"
   Redirection.do(force)
+when "page_count"
+  PageCount.do(force, verbose)
 else
   puts "Unknown command."
 end
