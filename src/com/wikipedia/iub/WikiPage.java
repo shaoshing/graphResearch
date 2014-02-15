@@ -12,6 +12,7 @@ public class WikiPage {
 
     public String title;
     public String titleTranslation;
+    public ArrayList<String> redirectedTitles;
 
     public String content;
     public String contentTranslation;
@@ -25,6 +26,8 @@ public class WikiPage {
     public ArrayList<WikiCategory> indirect_l2_categories;
 
     public WikiPage(){
+        this.redirectedTitles = new ArrayList<String>();
+
         this.l1_categories = new ArrayList<WikiCategory>();
         this.l2_categories = new ArrayList<WikiCategory>();
         this.l3_categories = new ArrayList<WikiCategory>();

@@ -130,6 +130,15 @@ public class WikiClient {
                     }
                 }
 
+                // Find redirected titles
+                String redirectedTitleSQL = String.format("SELECT title FROM redirections " +
+                        "WHERE language = %d AND redirect_id = %d AND id <> redirect_id",
+                        languageCode, page.id);
+                ResultSet redirectedTitleResult = dbQuery(redirectedTitleSQL);
+                while(redirectedTitleResult.next()){
+                    page.redirectedTitles.add(redirectedTitleResult.getString("title"));
+                }
+
                 pages.add(page);
             }
 

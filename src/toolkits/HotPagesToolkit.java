@@ -45,6 +45,13 @@ public class HotPagesToolkit {
                     }
                     line += "|" + categoryStr;
                 }
+
+                line += "|";
+                for(int i = 0; i < page.redirectedTitles.size(); i++){
+                    line += page.redirectedTitles.get(i);
+                    if(i != page.redirectedTitles.size()-1) line += ", ";
+                }
+
                 writer.println(line);
             };
             writer.println("");

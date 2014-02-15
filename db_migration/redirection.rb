@@ -25,6 +25,7 @@ class Redirection
       `redirect_title` varchar(#{Conversion::MAX_TITLE_LENGTH}) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
       `redirect_id` int(10) unsigned NOT NULL,
       KEY `redirection_title` (`title`),
+      KEY `redirection_redirect_id_language` (`redirect_id`, `language`),
       KEY `redirection_title_language` (`title`, `language`),
       UNIQUE KEY `redirection_id_language` (`id`, `language`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

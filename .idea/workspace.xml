@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7367f9aa-54b1-49c7-8189-af0ac9e28cc5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java" afterPath="$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java" afterPath="$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java" afterPath="$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java" afterPath="$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db_migration/redirection.rb" afterPath="$PROJECT_DIR$/db_migration/redirection.rb" />
     </list>
     <ignored path="Wikipedia.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,46 +69,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="wikipedia.property" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/configs/wikipedia.property">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="210">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/toolkits/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="18" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiPage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="24" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="630">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HotPagesToolkit.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="56" selection-start="579" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="825">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="category.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db_migration/category.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="28" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2115">
+            <state line="10" column="28" selection-start="544" selection-end="544" vertical-scroll-proportion="-0.20916335" vertical-offset="255" max-vertical-offset="2115">
               <folding />
             </state>
           </provider>
@@ -117,7 +81,16 @@
       <file leaf-file-name="WikiClient.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="81" selection-start="6423" selection-end="6423" vertical-scroll-proportion="0.0" vertical-offset="1336" max-vertical-offset="2505">
+            <state line="136" column="38" selection-start="7044" selection-end="7044" vertical-scroll-proportion="0.0" vertical-offset="1806" max-vertical-offset="2640">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="redirection.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db_migration/redirection.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="69" selection-start="1166" selection-end="1166" vertical-scroll-proportion="-13.2" vertical-offset="120" max-vertical-offset="1530">
               <folding />
             </state>
           </provider>
@@ -135,16 +108,7 @@
       <file leaf-file-name="helpers.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_migration/helpers.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="30" selection-start="3838" selection-end="3838" vertical-scroll-proportion="-16.2" vertical-offset="1080" max-vertical-offset="2130">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiCategory.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="36" selection-start="518" selection-end="518" vertical-scroll-proportion="0.4697286" vertical-offset="0" max-vertical-offset="479">
+            <state line="81" column="34" selection-start="2797" selection-end="2797" vertical-scroll-proportion="-5.4" vertical-offset="1080" max-vertical-offset="2130">
               <folding />
             </state>
           </provider>
@@ -167,14 +131,15 @@
         <option value="$PROJECT_DIR$/src/com/wikipedia/iub/Wiki.java" />
         <option value="$PROJECT_DIR$/configs/wikipedia.property.example" />
         <option value="$PROJECT_DIR$/src/Run.java" />
-        <option value="$PROJECT_DIR$/configs/wikipedia.property" />
         <option value="$PROJECT_DIR$/src/toolkits/Run.java" />
         <option value="$PROJECT_DIR$/src/toolkits/EventToolkit.java" />
         <option value="$PROJECT_DIR$/src/toolkits/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java" />
-        <option value="$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java" />
-        <option value="$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java" />
         <option value="$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java" />
+        <option value="$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java" />
+        <option value="$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java" />
+        <option value="$PROJECT_DIR$/db_migration/redirection.rb" />
+        <option value="$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java" />
+        <option value="$PROJECT_DIR$/configs/wikipedia.property" />
       </list>
     </option>
   </component>
@@ -264,6 +229,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wikipedia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wikipedia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db_migration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wikipedia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wikipedia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="configs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -274,7 +267,7 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="editor" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -480,19 +473,19 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996207" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1954612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32996207" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -668,20 +661,6 @@
         <state line="6" column="22" selection-start="0" selection-end="138" vertical-scroll-proportion="0.17928287" vertical-offset="0" max-vertical-offset="502" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/wikipedia.property">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="24" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.0" vertical-offset="128" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db_migration/conversion.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="61" column="28" selection-start="2265" selection-end="2265" vertical-scroll-proportion="-12.6" vertical-offset="600" max-vertical-offset="2235">
@@ -689,44 +668,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_migration/helpers.rb">
+    <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="30" selection-start="3838" selection-end="3838" vertical-scroll-proportion="-16.2" vertical-offset="1080" max-vertical-offset="2130">
+        <state line="5" column="97" selection-start="98" selection-end="98" vertical-scroll-proportion="0.1565762" vertical-offset="0" max-vertical-offset="479">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/toolkits/Main.java">
+    <entry file="file://$PROJECT_DIR$/db_migration/helpers.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="18" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+        <state line="81" column="34" selection-start="2797" selection-end="2797" vertical-scroll-proportion="-5.4" vertical-offset="1080" max-vertical-offset="2130">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_migration/redirection.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="69" selection-start="1166" selection-end="1166" vertical-scroll-proportion="-13.2" vertical-offset="120" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="81" selection-start="6423" selection-end="6423" vertical-scroll-proportion="0.0" vertical-offset="1336" max-vertical-offset="2505">
+        <state line="136" column="38" selection-start="7044" selection-end="7044" vertical-scroll-proportion="0.0" vertical-offset="1806" max-vertical-offset="2640">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/wikipedia.property">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="65" selection-start="220" selection-end="220" vertical-scroll-proportion="0.34446764" vertical-offset="0" max-vertical-offset="479">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_migration/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="12" selection-start="51" selection-end="69" vertical-scroll-proportion="0.066079296" vertical-offset="0" max-vertical-offset="454">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/toolkits/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="18" selection-start="730" selection-end="730" vertical-scroll-proportion="0.8067729" vertical-offset="0" max-vertical-offset="502">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="45" selection-start="305" selection-end="321" vertical-scroll-proportion="0.3426295" vertical-offset="38" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/toolkits/HotPagesToolkit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="56" selection-start="579" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="825">
+        <state line="53" column="126" selection-start="2354" selection-end="2354" vertical-scroll-proportion="0.62350595" vertical-offset="362" max-vertical-offset="930">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db_migration/category.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="28" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2115">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikipedia/iub/WikiCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="36" selection-start="518" selection-end="518" vertical-scroll-proportion="0.4697286" vertical-offset="0" max-vertical-offset="479">
+        <state line="10" column="28" selection-start="544" selection-end="544" vertical-scroll-proportion="-0.20916335" vertical-offset="255" max-vertical-offset="2115">
           <folding />
         </state>
       </provider>
