@@ -108,7 +108,7 @@ public class WikiClient {
                 }
 
                 // Find indirect l1 and l2 categories
-                String indirectCategorySql = "SELECT p.id, p.title, p.translation, p.level " +
+                String indirectCategorySql = "SELECT p.id, p.title, p.translation, p.level, count(*) as repeatCount " +
                         "FROM page_categories pc " +
                         "RIGHT JOIN main_category_subcategories mcs ON mcs.subcategory_id = pc.category_id AND mcs.language = %d " +
                         "RIGHT JOIN pages p ON mcs.%s_category_id = p.id AND p.language = %d " +
@@ -121,6 +121,7 @@ public class WikiClient {
                         category.id = categoryResult.getInt("id");
                         category.title = categoryResult.getString("title");
                         category.titleTranslation = categoryResult.getString("translation");
+                        category.repeatCount = categoryResult.getInt("repeatCount");
                         if(categoryResult.getInt("level") == 1){
                             page.indirect_l1_categories.add(category);
                         }else{

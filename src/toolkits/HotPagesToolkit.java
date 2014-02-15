@@ -39,7 +39,8 @@ public class HotPagesToolkit {
                     String categoryStr = "";
                     for(int i = 0; i < categories.size(); i++){
                         WikiCategory category = categories.get(i);
-                        categoryStr += Integer.toString(category.id) + ":" + category.title + ":" + category.titleTranslation;
+                        categoryStr += Integer.toString(category.id) + ":" + category.title +
+                                ":" + category.titleTranslation + ":" + Integer.toString(category.repeatCount);
                         if(i != categories.size()-1) categoryStr += ", ";
                     }
                     line += "|" + categoryStr;
