@@ -51,6 +51,11 @@ public class HotPagesToolkit {
                     line += page.redirectedTitles.get(i);
                     if(i != page.redirectedTitles.size()-1) line += ", ";
                 }
+                line += "|";
+                for(int i = 0; i < page.redirectedTitleTranslations.size(); i++){
+                    line += page.redirectedTitleTranslations.get(i);
+                    if(i != page.redirectedTitleTranslations.size()-1) line += ", ";
+                }
 
                 writer.println(line);
             };
