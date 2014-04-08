@@ -1,4 +1,4 @@
-package com.wikipedia.iub;
+package iub.api.wikipedia;
 
 import java.util.ArrayList;
 

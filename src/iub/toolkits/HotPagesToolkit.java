@@ -1,11 +1,10 @@
-package toolkits;
+package iub.toolkits;
 
-import com.wikipedia.iub.WikiCategory;
-import com.wikipedia.iub.WikiClient;
-import com.wikipedia.iub.WikiPage;
+import iub.api.wikipedia.WikiCategory;
+import iub.api.wikipedia.WikiClient;
+import iub.api.wikipedia.WikiPage;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;

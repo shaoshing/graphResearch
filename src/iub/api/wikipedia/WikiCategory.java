@@ -1,4 +1,4 @@
-package com.wikipedia.iub;
+package iub.api.wikipedia;
 
 /**
  * Created by shaoshing on 2/6/14.

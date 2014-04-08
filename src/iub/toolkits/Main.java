@@ -1,10 +1,10 @@
-package toolkits;
+package iub.toolkits;
 
 /**
  * Created by shaoshing on 2/6/14.
  */
 
-import com.wikipedia.iub.*;
+import iub.api.wikipedia.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;

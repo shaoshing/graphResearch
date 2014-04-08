@@ -1,6 +1,14 @@
-# WikiPedia Project
+# Graph Research Project - Indiana University
 
-## Toolkits
+This project is consist of multiple Java packages related to graph research conducted at Indiana University.
+Each package is explained below. Some of the packages may require populated Wikipedia SQL database.
+
+## Package: iub.wikipedia.api
+
+
+
+
+## Package: iub.toolkits
 
 ### Command: hotpage
 

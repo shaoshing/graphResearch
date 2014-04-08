@@ -1,4 +1,4 @@
-package com.wikipedia.iub;
+package iub.api.wikipedia;
 
 import java.io.FileInputStream;
 import java.io.IOException;
