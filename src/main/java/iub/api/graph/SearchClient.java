@@ -10,6 +10,14 @@ public class SearchClient {
         public String enId;
         public String zhId;
         public String title;
+        public int score;
+
+        public Page(String enId, String zhId, String title, int score){
+            this.enId = enId;
+            this.zhId = zhId;
+            this.title = title;
+            this.score = score;
+        }
     }
 
     enum LANGUAGE{

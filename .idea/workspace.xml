@@ -4,6 +4,7 @@
     <list default="true" id="7367f9aa-54b1-49c7-8189-af0ac9e28cc5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Wikipedia.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,7 +71,7 @@
       <file leaf-file-name="SearchClient.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="49" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+            <state line="18" column="31" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
               <folding />
             </state>
           </provider>
@@ -79,7 +80,7 @@
       <file leaf-file-name="CrossLanguageGraph.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="80" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.48548812" vertical-offset="337" max-vertical-offset="1635">
+            <state line="82" column="78" selection-start="4661" selection-end="4661" vertical-scroll-proportion="0.7427441" vertical-offset="667" max-vertical-offset="1635">
               <folding />
             </state>
           </provider>
@@ -892,14 +893,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="49" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+        <state line="18" column="31" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="80" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.48548812" vertical-offset="337" max-vertical-offset="1635">
+        <state line="82" column="78" selection-start="4661" selection-end="4661" vertical-scroll-proportion="0.7427441" vertical-offset="667" max-vertical-offset="1635">
           <folding />
         </state>
       </provider>

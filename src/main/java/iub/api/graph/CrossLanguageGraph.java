@@ -78,10 +78,10 @@ public class CrossLanguageGraph {
                     // Cypher: MATCH (k:Keyword {Name: "Academic", Language: "En"}), (p:Page {EnId: 2222})
                     //         MERGE p-[:HasKeyword]->k
                     String createRelationCypher = String.format(
-                            "MATCH (k:%s {%s:\"%s\"}), (p:%s {%s:%s}) MERGE p-[r:%s]->k",
+                            "MATCH (k:%s {%s:\"%s\"}), (p:%s {%s:%s}) MERGE p-[r:%s]->k SET r.Score = %d",
                             NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, keyword, NODE_KEYWORD_LANG_ATTR, languageName,
                             NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId,
-                            RELATION_NAMES_MAPPING[relationOption]);
+                            RELATION_NAMES_MAPPING[relationOption], page.score);
                     neo4jClient().query(createRelationCypher);
                 }
             }
