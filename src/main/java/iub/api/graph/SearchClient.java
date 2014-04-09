@@ -17,7 +17,11 @@ public class SearchClient {
         CHINESE
     }
 
-    public static Page[] search(String keyword, LANGUAGE language){
+    static public final int EXACT_MATCH_TITLE = 1;
+    static public final int PARTIAL_MATCH_TITLE = 2;
+    static public final int PARTIAL_MATCH_CONTENT = 4;
+
+    public static Page[] search(String keyword, LANGUAGE language, int matchOption){
         // TODO: return empty result until we have the Lucene indexes.
         ArrayList<Page> pages = new ArrayList<Page>();
         return pages.toArray(new Page[pages.size()]);
