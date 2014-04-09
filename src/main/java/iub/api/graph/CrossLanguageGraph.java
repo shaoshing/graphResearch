@@ -42,7 +42,8 @@ public class CrossLanguageGraph {
                 // Cypher: MERGE (n:Keyword {Name: "Academic", Language: "En"}) SET n:212323533
                 String createKeywordNodeCypher = String.format(
                         "MERGE (n:%s {%s: \"%s\", %s: \"%s\"})",
-                        NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, keyword, NODE_KEYWORD_LANG_ATTR, languageName);
+                        NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, escapeString(keyword),
+                        NODE_KEYWORD_LANG_ATTR, languageName);
                 neo4jClient().query(createKeywordNodeCypher);
 
                 // Create page node
@@ -53,7 +54,7 @@ public class CrossLanguageGraph {
                         NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, NODE_PAGE_ZH_ID_ATTR, page.zhId);
                 neo4jClient().query(createPageNodeCypher);
                 String setPageNodeTitleCypher = String.format( "MATCH (n:%s {%s: %s}) SET n.%s = \"%s\"",
-                        NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, nodePageTitleAttr, page.title);
+                        NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, nodePageTitleAttr, escapeString(page.title));
                 neo4jClient().query(setPageNodeTitleCypher);
 
                 // Create relation
@@ -78,4 +79,7 @@ public class CrossLanguageGraph {
         return _neo4jClient;
     }
 
+    static private String escapeString(String str){
+        return org.apache.commons.lang3.StringEscapeUtils.escapeJson(str);
+    }
 }
