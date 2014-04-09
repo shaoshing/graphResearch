@@ -3,10 +3,9 @@
 This project is consist of multiple Java packages related to graph research conducted at Indiana University.
 Each package is explained below. Some of the packages may require populated Wikipedia SQL database.
 
-## Package: iub.wikipedia.api
+## Package: iub.api.wikipedia
 
-
-
+## Package: iub.api.graph
 
 ## Package: iub.toolkits
 
