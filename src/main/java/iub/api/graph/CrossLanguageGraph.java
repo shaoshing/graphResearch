@@ -21,9 +21,9 @@ public class CrossLanguageGraph {
     static private final String NODE_PAGE_EN_ID_ATTR = "EnId";
     static private final String NODE_PAGE_ZH_ID_ATTR = "ZhId";
 
-    static private final String RELATION_EXACT_MATCH_TITLE = "ExactMatchTitle";
-    static private final String RELATION_PARTIAL_MATCH_TITLE = "PartialMatchTitle";
-    static private final String RELATION_PARTIAL_MATCH_CONTENT = "PartialMatchContent";
+    static private final String RELATION_EXACT_MATCH_TITLE = "EXACT_MATCH_TITLE";
+    static private final String RELATION_PARTIAL_MATCH_TITLE = "PARTIAL_MATCH_TITLE";
+    static private final String RELATION_PARTIAL_MATCH_CONTENT = "PARTIAL_MATCH_CONTENT";
 
 
     static public final int CREATE_EXACT_MATCH_TITLE_RELATION = 1;

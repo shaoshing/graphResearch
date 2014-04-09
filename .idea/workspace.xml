@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7367f9aa-54b1-49c7-8189-af0ac9e28cc5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Wikipedia.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,7 +78,7 @@
       <file leaf-file-name="CrossLanguageGraph.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="78" selection-start="4661" selection-end="4661" vertical-scroll-proportion="0.7427441" vertical-offset="667" max-vertical-offset="1635">
+            <state line="25" column="87" selection-start="1135" selection-end="1135" vertical-scroll-proportion="0.49472296" vertical-offset="0" max-vertical-offset="1635">
               <folding />
             </state>
           </provider>
@@ -900,7 +898,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="78" selection-start="4661" selection-end="4661" vertical-scroll-proportion="0.7427441" vertical-offset="667" max-vertical-offset="1635">
+        <state line="25" column="87" selection-start="1135" selection-end="1135" vertical-scroll-proportion="0.49472296" vertical-offset="0" max-vertical-offset="1635">
           <folding />
         </state>
       </provider>
