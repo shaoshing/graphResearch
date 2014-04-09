@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7367f9aa-54b1-49c7-8189-af0ac9e28cc5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iub/api/wikipedia/WikiCategory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iub/api/wikipedia/WikiClient.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iub/api/wikipedia/WikiPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iub/toolkits/HotPagesToolkit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/iub/toolkits/Main.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Wikipedia.iml" afterPath="$PROJECT_DIR$/Wikipedia.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Wikipedia.iws" />
@@ -78,10 +71,8 @@
       <file leaf-file-name="SearchClient.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="25" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <folding>
-                <element signature="e#515#521#0" expanded="true" />
-              </folding>
+            <state line="11" column="28" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,8 +80,19 @@
       <file leaf-file-name="CrossLanguageGraph.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="0" selection-start="3823" selection-end="3823" vertical-scroll-proportion="0.84126985" vertical-offset="594" max-vertical-offset="1350">
+            <state line="35" column="80" selection-start="1534" selection-end="1534" vertical-scroll-proportion="0.27704486" vertical-offset="315" max-vertical-offset="1305">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Neo4jClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="13" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -204,7 +206,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -355,6 +356,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -436,19 +438,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -474,6 +463,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -620,9 +622,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/toolkits/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="32" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="555">
-          <folding />
-        </state>
+        <state line="12" column="32" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="555" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/toolkits/HotPagesToolkit.java">
@@ -656,9 +656,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/toolkits/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="17" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="555">
-          <folding />
-        </state>
+        <state line="21" column="17" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="555" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db_migration/redirection.rb">
@@ -708,9 +706,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/toolkits/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="9" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555">
-          <folding />
-        </state>
+        <state line="26" column="9" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/wikipedia/WikiPage.java">
@@ -747,9 +743,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/toolkits/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="9" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555">
-          <folding />
-        </state>
+        <state line="26" column="9" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/wikipedia/WikiPage.java">
@@ -786,9 +780,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/toolkits/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="9" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555">
-          <folding />
-        </state>
+        <state line="26" column="9" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/wikipedia/WikiPage.java">
@@ -855,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="232" selection-end="232" vertical-scroll-proportion="0.20463847" vertical-offset="0" max-vertical-offset="733">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/wikipedia/WikiPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="22" selection-start="214" selection-end="214" vertical-scroll-proportion="0.21825397" vertical-offset="0" max-vertical-offset="756">
@@ -887,9 +872,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/toolkits/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="19" selection-start="209" selection-end="209" vertical-scroll-proportion="0.23809524" vertical-offset="0" max-vertical-offset="756">
-          <folding />
-        </state>
+        <state line="12" column="19" selection-start="209" selection-end="209" vertical-scroll-proportion="0.23809524" vertical-offset="0" max-vertical-offset="756" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/toolkits/HotPagesToolkit.java">
@@ -899,18 +882,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="13" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="25" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <folding>
-            <element signature="e#515#521#0" expanded="true" />
-          </folding>
+        <state line="11" column="28" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="3823" selection-end="3823" vertical-scroll-proportion="0.84126985" vertical-offset="594" max-vertical-offset="1350">
+        <state line="35" column="80" selection-start="1534" selection-end="1534" vertical-scroll-proportion="0.27704486" vertical-offset="315" max-vertical-offset="1305">
           <folding />
         </state>
       </provider>

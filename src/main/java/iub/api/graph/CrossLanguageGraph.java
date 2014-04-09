@@ -19,26 +19,21 @@ public class CrossLanguageGraph {
     static private final String NODE_KEYWORD_LANG_ATTR = "Language";
     static private final String NODE_PAGE = "Page";
     static private final String NODE_PAGE_EN_ID_ATTR = "EnId";
-    static private final String NODE_PAGE_EN_TITLE_ATTR = "EnTitle";
     static private final String NODE_PAGE_ZH_ID_ATTR = "ZhId";
-    static private final String NODE_PAGE_ZH_TITLE_ATTR = "ZhTitle";
     static private final String RELATION_HAS_KEYWORD = "HasKeyword";
 
 
-    static public String createGraphByKeywords(String[] enKeywords, String[] zhKeywords){
-        String graphId = Long.toString((new Date()).getTime());
-
-        createGraphByKeywordsAndLanguage(enKeywords, ENGLISH, graphId);
-        createGraphByKeywordsAndLanguage(zhKeywords, CHINESE, graphId);
-
-        return graphId;
+    static public void createGraphByKeywords(String[] enKeywords, String[] zhKeywords){
+        createGraphByKeywordsAndLanguage(enKeywords, ENGLISH);
+        createGraphByKeywordsAndLanguage(zhKeywords, CHINESE);
     }
 
-    static private void createGraphByKeywordsAndLanguage(String[] keywords, String languageName, String graphId){
+    static private void createGraphByKeywordsAndLanguage(String[] keywords, String languageName){
         SearchClient.LANGUAGE searchLanguage = SearchClient.LANGUAGE.ENGLISH;
         if(languageName != ENGLISH){
             searchLanguage = SearchClient.LANGUAGE.CHINESE;
         }
+        String nodePageTitleAttr = languageName+"Title"; // = ZhTitle or EnTitle
 
         for(String keyword: keywords){
             SearchClient.Page[] pages = SearchClient.search(keyword, searchLanguage);
@@ -46,18 +41,20 @@ public class CrossLanguageGraph {
                 // Create keyword node
                 // Cypher: MERGE (n:Keyword {Name: "Academic", Language: "En"}) SET n:212323533
                 String createKeywordNodeCypher = String.format(
-                        "MERGE (n:%s {%s: \"%s\", %s: \"%s\"}) SET n:%s",
-                        NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, keyword, NODE_KEYWORD_LANG_ATTR, languageName, graphId);
+                        "MERGE (n:%s {%s: \"%s\", %s: \"%s\"})",
+                        NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, keyword, NODE_KEYWORD_LANG_ATTR, languageName);
                 neo4jClient().query(createKeywordNodeCypher);
 
                 // Create page node
-                // Cypher: MERGE (n:Page {EnId: 2222, EnTitle: "Hello", ZhId: 3333, ZhTitle: "你好"}) SET n:212323533
-                String createPageNodeCypher = String.format(
-                        "MERGE (n:%s {%s: %s, %s: \"%s\", %s: %s, %s: \"%s\"}) SET n:%s", NODE_PAGE,
-                        NODE_PAGE_EN_ID_ATTR, page.enId, NODE_PAGE_EN_TITLE_ATTR, page.enTitle,
-                        NODE_PAGE_ZH_ID_ATTR, page.zhId, NODE_PAGE_ZH_TITLE_ATTR, page.zhTitle,
-                        graphId);
+                // Cypher:
+                //      MERGE (:Page {EnId: 2222, ZhId: 3333})
+                //      MATCH (n:Page {EnId: 2222}) SET n.EnTitle = "Hello" // or n.ZhTitle = "你好"
+                String createPageNodeCypher = String.format( "MERGE (:%s {%s: %s, %s: %s})",
+                        NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, NODE_PAGE_ZH_ID_ATTR, page.zhId);
                 neo4jClient().query(createPageNodeCypher);
+                String setPageNodeTitleCypher = String.format( "MATCH (n:%s {%s: %s}) SET n.%s = \"%s\"",
+                        NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, nodePageTitleAttr, page.title);
+                neo4jClient().query(setPageNodeTitleCypher);
 
                 // Create relation
                 // Cypher: MATCH (k:Keyword {Name: "Academic", Language: "En"}), (p:Page {EnId: 2222})

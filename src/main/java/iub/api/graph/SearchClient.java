@@ -8,9 +8,8 @@ import java.util.ArrayList;
 public class SearchClient {
     public class Page{
         public String enId;
-        public String enTitle;
         public String zhId;
-        public String zhTitle;
+        public String title;
     }
 
     enum LANGUAGE{
