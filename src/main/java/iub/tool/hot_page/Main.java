@@ -1,4 +1,4 @@
-package iub.toolkits;
+package iub.tool.hot_page;
 
 /**
  * Created by shaoshing on 2/6/14.

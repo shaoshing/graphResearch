@@ -1,12 +1,10 @@
-package iub.toolkits;
+package iub.tool.hot_page;
 
 import iub.api.wikipedia.WikiCategory;
 import iub.api.wikipedia.WikiClient;
 import iub.api.wikipedia.WikiPage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -65,4 +63,23 @@ public class HotPagesToolkit {
         }
     }
 
+    public static class Main {
+
+        static final String OUTPUT_FOLDER = "output";
+
+        static public void main(String[] args) throws IOException {
+            System.out.println("Input command:");
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+
+            String command = input.readLine().trim();
+
+            if(command.equals("hotpage")){
+                System.out.println("Input file path:");
+                String filePath = input.readLine().trim();
+                generateHotPagesTxt(filePath);
+            }
+
+
+        }
+    }
 }
