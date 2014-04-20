@@ -1,5 +1,6 @@
 package iub.api.graph;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -21,10 +22,12 @@ public class CrossLanguageGraph {
     static private final String NODE_PAGE = "Page";
     static private final String NODE_PAGE_EN_ID_ATTR = "EnId";
     static private final String NODE_PAGE_ZH_ID_ATTR = "ZhId";
+    static private final String NODE_CATEGORY = "Category";
 
     static private final String RELATION_EXACT_MATCH_TITLE = "EXACT_MATCH_TITLE";
     static private final String RELATION_PARTIAL_MATCH_TITLE = "PARTIAL_MATCH_TITLE";
     static private final String RELATION_PARTIAL_MATCH_CONTENT = "PARTIAL_MATCH_CONTENT";
+    static private final String RELATION_BELONGS_TO_CATEGORY = "BELONGS_TO_CATEGORY";
 
     static public final int CREATE_EXACT_MATCH_TITLE_RELATION = 1;
     static public final int CREATE_PARTIAL_MATCH_TITLE_RELATION = 2;
@@ -37,9 +40,9 @@ public class CrossLanguageGraph {
     }
 
     public void createGraphByKeywords(String[] enKeywords, String[] zhKeywords, int relationOptions){
-        String[] enPageIds = createKeywordAndWikiGraph(enKeywords, ENGLISH, relationOptions);
-        String[] zhPageIds = createKeywordAndWikiGraph(zhKeywords, CHINESE, relationOptions);
-        // createWikiAndCategoryGraph(enPageIds, zhPageIds);
+        ArrayList<String> enPageIds = createKeywordAndWikiGraph(enKeywords, ENGLISH, relationOptions);
+        enPageIds.addAll(createKeywordAndWikiGraph(zhKeywords, CHINESE, relationOptions));
+        createWikiAndCategoryGraph(enPageIds);
     }
 
 
@@ -49,7 +52,7 @@ public class CrossLanguageGraph {
     static private final String[] RELATION_NAMES_MAPPING = { "", RELATION_EXACT_MATCH_TITLE,
             RELATION_PARTIAL_MATCH_TITLE, "", RELATION_PARTIAL_MATCH_CONTENT};
 
-    private String[] createKeywordAndWikiGraph(String[] keywords, String languageName, int relationOptions){
+    private ArrayList<String> createKeywordAndWikiGraph(String[] keywords, String languageName, int relationOptions){
         SearchClient.LANGUAGE searchLanguage = SearchClient.LANGUAGE.ENGLISH;
         if(languageName != ENGLISH){
             searchLanguage = SearchClient.LANGUAGE.CHINESE;
@@ -69,30 +72,89 @@ public class CrossLanguageGraph {
                 }
 
                 for(SearchClient.Page page: pages){
-                    if(languageName == ENGLISH){
-                        pageIds.add(page.enId);
-                    }else{
-                        pageIds.add(page.zhId);
-                    }
+                    pageIds.add(page.enId);
                 }
             }
         }
 
-        String[] results = new String[pageIds.size()];
-        pageIds.toArray(results);
-        return results;
+        return pageIds;
     }
 
-//    static private void createWikiAndCategoryGraph(String[] enPageIds, String[] zhPageIds){
-//        //
-//        String dbClass = "com.mysql.jdbc.Driver";
-//        Class.forName(dbClass);
-//
-//        // setup the connection with the DB.
-//        connect = DriverManager
-//                .getConnection("jdbc:mysql://localhost/feedback?"
-//                        + "user=sqluser&password=sqluserpw");
+
+
+    private void createWikiAndCategoryGraph(ArrayList<String> enPageIdsArray) {
+        // TODO: batch creation
+        String [] enPageIds = new String[enPageIdsArray.size()];
+        enPageIdsArray.toArray(enPageIds);
+
+        try {
+            PreparedStatement statement = getDB().prepareStatement(
+                    "SELECT c.id AS category_id, c.name AS category_title, pc.id AS page_id " +
+                    "FROM page_categories AS pc " +
+                    "JOIN Category AS c ON pc.pages = c.id " +
+                    "WHERE pc.id IN (?);");
+            Array idsArray = getDB().createArrayOf("INT", enPageIds);
+            statement.setArray(1, idsArray);
+            ResultSet result = statement.executeQuery();
+
+            while(result.next()){
+                int categoryId = result.getInt("category_id");
+                String categoryTitle = result.getString("category_title");
+                int pageId = result.getInt("page_id");
+
+                // TODO: add cache
+                // Create category node
+                // Cypher: MERGE (c:Category {Name: "Academic", Language: "En"})
+                String createCategoryNodeCypher = String.format(
+                        "MERGE (c:%s {id: %d, %title: \"%s\"})",
+                        NODE_CATEGORY, categoryId, escapeString(categoryTitle));
+                neo4jClient().query(createCategoryNodeCypher);
+
+                // Add Relation
+                // Cypher: MATCH (c:Category {id: 1}), (p:Page {id: 2}) MERGE p -[:BELONGS_TO_CATEGORY]-> c
+                String createRelationCypher = String.format(
+                        "MATCH (c:%s {id: %d}), (p:%s {id: %d}) MERGE p -[:%s]-> c",
+                        NODE_CATEGORY, categoryId,
+                        NODE_PAGE, pageId,
+                        RELATION_BELONGS_TO_CATEGORY);
+                neo4jClient().query(createRelationCypher);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Connection _mysqlConnection;
+
+
+//    private void testDBConnection(){
+//        getDB().
 //    }
+
+    private Connection getDB() {
+        if(this._mysqlConnection != null){
+            return this._mysqlConnection;
+        }
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        // setup the connection with the DB.
+        try {
+            this._mysqlConnection = DriverManager
+                    .getConnection("jdbc:mysql://localhost/feedback?"
+                            + "user=sqluser&password=sqluserpw");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return this._mysqlConnection;
+    }
 
     private Neo4jClient _neo4jClient;
     private Neo4jClient neo4jClient(){
@@ -110,7 +172,7 @@ public class CrossLanguageGraph {
             String keyword, String languageName, SearchClient.Page page, String nodePageTitleAttr, int relationOption){
 
         // Create keyword node
-        // Cypher: MERGE (n:Keyword {Name: "Academic", Language: "En"}) SET n:212323533
+        // Cypher: MERGE (n:Keyword {Name: "Academic", Language: "En"})
         String createKeywordNodeCypher = String.format(
                 "MERGE (n:%s {%s: \"%s\", %s: \"%s\"})",
                 NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, escapeString(keyword),
@@ -121,9 +183,11 @@ public class CrossLanguageGraph {
         // Cypher:
         //      MERGE (:Page {EnId: 2222, ZhId: 3333})
         //      MATCH (n:Page {EnId: 2222}) SET n.EnTitle = "Hello" // or n.ZhTitle = "你好"
+        // TODO: add cache
         String createPageNodeCypher = String.format( "MERGE (:%s {%s: %s, %s: %s})",
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, NODE_PAGE_ZH_ID_ATTR, page.zhId);
         neo4jClient().query(createPageNodeCypher);
+        // TODO: add cache
         String setPageNodeTitleCypher = String.format( "MATCH (n:%s {%s: %s}) SET n.%s = \"%s\"",
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, nodePageTitleAttr, escapeString(page.title));
         neo4jClient().query(setPageNodeTitleCypher);
