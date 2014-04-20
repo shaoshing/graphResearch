@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Wikipedia.iml" filepath="$PROJECT_DIR$/Wikipedia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GraphResearch.iml" filepath="$PROJECT_DIR$/GraphResearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/cross_graph.iml" filepath="$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/cross_graph.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/main/java/iub/tool/hot_page/hot_page.iml" filepath="$PROJECT_DIR$/src/main/java/iub/tool/hot_page/hot_page.iml" />
     </modules>
   </component>
 </project>

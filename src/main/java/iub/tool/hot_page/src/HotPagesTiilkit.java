@@ -1,4 +1,3 @@
-package iub.tool.hot_page;
 
 import iub.api.wikipedia.WikiCategory;
 import iub.api.wikipedia.WikiClient;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by shaoshing on 2/6/14.
  */
-public class HotPagesToolkit {
+class HotPagesToolkit {
     static final int FIELD_INDEX_ID = 0;
     static final int FIELD_INDEX_TITLE = 1;
     public static void generateHotPagesTxt(String hotPagesFile){

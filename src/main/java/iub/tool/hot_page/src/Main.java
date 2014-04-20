@@ -1,5 +1,3 @@
-package iub.tool.hot_page;
-
 /**
  * Created by shaoshing on 2/6/14.
  */
@@ -25,7 +23,5 @@ public class Main {
             String filePath = input.readLine().trim();
             HotPagesToolkit.generateHotPagesTxt(filePath);
         }
-
-
     }
 }
