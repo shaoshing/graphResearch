@@ -39,7 +39,7 @@ public class CrossLanguageGraph {
         this.config = config;
     }
 
-    public void createGraphByKeywords(String[] enKeywords, String[] zhKeywords, int relationOptions){
+    public void createGraphByKeywords(ArrayList<String> enKeywords, ArrayList<String> zhKeywords, int relationOptions){
         ArrayList<String> enPageIds = createKeywordAndWikiGraph(enKeywords, ENGLISH, relationOptions);
         enPageIds.addAll(createKeywordAndWikiGraph(zhKeywords, CHINESE, relationOptions));
         createWikiAndCategoryGraph(enPageIds);
@@ -52,7 +52,7 @@ public class CrossLanguageGraph {
     static private final String[] RELATION_NAMES_MAPPING = { "", RELATION_EXACT_MATCH_TITLE,
             RELATION_PARTIAL_MATCH_TITLE, "", RELATION_PARTIAL_MATCH_CONTENT};
 
-    private ArrayList<String> createKeywordAndWikiGraph(String[] keywords, String languageName, int relationOptions){
+    private ArrayList<String> createKeywordAndWikiGraph(ArrayList<String> keywords, String languageName, int relationOptions){
         SearchClient.LANGUAGE searchLanguage = SearchClient.LANGUAGE.ENGLISH;
         if(languageName != ENGLISH){
             searchLanguage = SearchClient.LANGUAGE.CHINESE;
