@@ -1,6 +1,7 @@
 package iub.api.graph;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  * Created by shaoshing on 4/8/14.
@@ -25,13 +26,20 @@ public class CrossLanguageGraph {
     static private final String RELATION_PARTIAL_MATCH_TITLE = "PARTIAL_MATCH_TITLE";
     static private final String RELATION_PARTIAL_MATCH_CONTENT = "PARTIAL_MATCH_CONTENT";
 
-
     static public final int CREATE_EXACT_MATCH_TITLE_RELATION = 1;
     static public final int CREATE_PARTIAL_MATCH_TITLE_RELATION = 2;
     static public final int CREATE_PARTIAL_MATCH_CONTENT_RELATION= 4;
-    static public void createGraphByKeywords(String[] enKeywords, String[] zhKeywords, int relationOptions){
-        createGraphByKeywordsAndLanguage(enKeywords, ENGLISH, relationOptions);
-        createGraphByKeywordsAndLanguage(zhKeywords, CHINESE, relationOptions);
+
+    private Properties config;
+
+    public CrossLanguageGraph(Properties config){
+        this.config = config;
+    }
+
+    public void createGraphByKeywords(String[] enKeywords, String[] zhKeywords, int relationOptions){
+        String[] enPageIds = createKeywordAndWikiGraph(enKeywords, ENGLISH, relationOptions);
+        String[] zhPageIds = createKeywordAndWikiGraph(zhKeywords, CHINESE, relationOptions);
+        // createWikiAndCategoryGraph(enPageIds, zhPageIds);
     }
 
 
@@ -41,13 +49,14 @@ public class CrossLanguageGraph {
     static private final String[] RELATION_NAMES_MAPPING = { "", RELATION_EXACT_MATCH_TITLE,
             RELATION_PARTIAL_MATCH_TITLE, "", RELATION_PARTIAL_MATCH_CONTENT};
 
-    static private void createGraphByKeywordsAndLanguage(String[] keywords, String languageName, int relationOptions){
+    private String[] createKeywordAndWikiGraph(String[] keywords, String languageName, int relationOptions){
         SearchClient.LANGUAGE searchLanguage = SearchClient.LANGUAGE.ENGLISH;
         if(languageName != ENGLISH){
             searchLanguage = SearchClient.LANGUAGE.CHINESE;
         }
         String nodePageTitleAttr = languageName+"Title"; // = ZhTitle or EnTitle
 
+        ArrayList<String> pageIds = new ArrayList<String>();
         for(int relationOption: RELATION_OPTIONS){
             if((relationOption & relationOptions) == 0){
                 continue;
@@ -58,13 +67,35 @@ public class CrossLanguageGraph {
                 for(SearchClient.Page page: pages){
                     createNodesAndRelations(keyword, languageName, page, nodePageTitleAttr, relationOption);
                 }
+
+                for(SearchClient.Page page: pages){
+                    if(languageName == ENGLISH){
+                        pageIds.add(page.enId);
+                    }else{
+                        pageIds.add(page.zhId);
+                    }
+                }
             }
         }
+
+        String[] results = new String[pageIds.size()];
+        pageIds.toArray(results);
+        return results;
     }
 
+//    static private void createWikiAndCategoryGraph(String[] enPageIds, String[] zhPageIds){
+//        //
+//        String dbClass = "com.mysql.jdbc.Driver";
+//        Class.forName(dbClass);
+//
+//        // setup the connection with the DB.
+//        connect = DriverManager
+//                .getConnection("jdbc:mysql://localhost/feedback?"
+//                        + "user=sqluser&password=sqluserpw");
+//    }
 
-    static private Neo4jClient _neo4jClient;
-    static private Neo4jClient neo4jClient(){
+    private Neo4jClient _neo4jClient;
+    private Neo4jClient neo4jClient(){
         if(_neo4jClient == null){
             _neo4jClient = new Neo4jClient(NEO4J_URL);
         }
@@ -75,7 +106,7 @@ public class CrossLanguageGraph {
         return org.apache.commons.lang3.StringEscapeUtils.escapeJson(str);
     }
 
-    static private void createNodesAndRelations(
+    private void createNodesAndRelations(
             String keyword, String languageName, SearchClient.Page page, String nodePageTitleAttr, int relationOption){
 
         // Create keyword node
