@@ -13,9 +13,17 @@ public class CrossLanguageGraph {
     // the created graph (nodes). To show the graph using Cypher, use:
     //  MATCH (x:[value of id]) RETURN x;
 
+    static private final String CONFIG_NEO4J_URL = "neo4j.url";
+    static private final String CONFIG_DB_HOST = "database.host";
+    static private final String CONFIG_DB_NAME = "database.name";
+    static private final String CONFIG_DB_USER = "database.user";
+    static private final String CONFIG_DB_PSWD = "database.password";
+    static private final String CONFIG_DB_PORT = "database.port";
+    static private final String CONFIG_LUCENE_EN = "lucene.index.en";
+    static private final String CONFIG_LUCENE_ZH = "lucene.index.zh";
+
     static private final String ENGLISH = "En";
     static private final String CHINESE = "Zh";
-    static private final String NEO4J_URL = "http://localhost:7474/db/data/";
     static private final String NODE_KEYWORD = "Keyword";
     static private final String NODE_KEYWORD_NAME_ATTR = "Name";
     static private final String NODE_KEYWORD_LANG_ATTR = "Language";
@@ -59,6 +67,8 @@ public class CrossLanguageGraph {
         }
         String nodePageTitleAttr = languageName+"Title"; // = ZhTitle or EnTitle
 
+        SearchClient searchClient = new SearchClient(
+                config.getProperty(CONFIG_LUCENE_EN), config.getProperty(CONFIG_LUCENE_ZH));
         ArrayList<String> pageIds = new ArrayList<String>();
         for(int relationOption: RELATION_OPTIONS){
             if((relationOption & relationOptions) == 0){
@@ -66,7 +76,7 @@ public class CrossLanguageGraph {
             }
 
             for(String keyword: keywords){
-                SearchClient.Page[] pages = SearchClient.search(keyword, searchLanguage, relationOption);
+                SearchClient.Page[] pages = searchClient.search(keyword, searchLanguage, relationOption);
                 for(SearchClient.Page page: pages){
                     createNodesAndRelations(keyword, languageName, page, nodePageTitleAttr, relationOption);
                 }
@@ -128,11 +138,6 @@ public class CrossLanguageGraph {
 
     private Connection _mysqlConnection;
 
-
-//    private void testDBConnection(){
-//        getDB().
-//    }
-
     private Connection getDB() {
         if(this._mysqlConnection != null){
             return this._mysqlConnection;
@@ -144,11 +149,14 @@ public class CrossLanguageGraph {
             e.printStackTrace();
         }
 
-        // setup the connection with the DB.
+        String connectionStr = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&port=%s",
+                config.getProperty(CONFIG_DB_HOST),
+                config.getProperty(CONFIG_DB_NAME),
+                config.getProperty(CONFIG_DB_USER),
+                config.getProperty(CONFIG_DB_PSWD),
+                config.getProperty(CONFIG_DB_PORT));
         try {
-            this._mysqlConnection = DriverManager
-                    .getConnection("jdbc:mysql://localhost/feedback?"
-                            + "user=sqluser&password=sqluserpw");
+            this._mysqlConnection = DriverManager.getConnection(connectionStr);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -159,7 +167,7 @@ public class CrossLanguageGraph {
     private Neo4jClient _neo4jClient;
     private Neo4jClient neo4jClient(){
         if(_neo4jClient == null){
-            _neo4jClient = new Neo4jClient(NEO4J_URL);
+            _neo4jClient = new Neo4jClient(config.getProperty(CONFIG_NEO4J_URL));
         }
         return _neo4jClient;
     }
