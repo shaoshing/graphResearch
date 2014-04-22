@@ -8,9 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7367f9aa-54b1-49c7-8189-af0ac9e28cc5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_r09.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/src/Main.java" afterPath="$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GraphResearch.iml" afterPath="$PROJECT_DIR$/GraphResearch.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/cross_graph_GraphResearch_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/cross_graph_GraphResearch_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Wikipedia.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,10 +86,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrossLanguageGraph.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SearchClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="17" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CrossLanguageGraph.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="9" selection-start="2498" selection-end="2498" vertical-scroll-proportion="0.5120482" vertical-offset="570" max-vertical-offset="3480">
+            <state line="26" column="8" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="3675">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HotPagesTiilkit.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/HotPagesTiilkit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="49" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.6626506" vertical-offset="0" max-vertical-offset="1275">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="21" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="690">
               <folding />
             </state>
           </provider>
@@ -144,8 +176,8 @@
         <option value="$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/src/Main.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" />
       </list>
     </option>
@@ -515,7 +547,7 @@
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="build/corss_graph.jar" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/GraphResearch.jar!/" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/com/google/guava/guava/r09/guava-r09.jar!/" />
     <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="RecentsManager">
@@ -824,7 +856,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="145" column="30" selection-start="6345" selection-end="6345" vertical-scroll-proportion="0.0" vertical-offset="1869" max-vertical-offset="3360">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1024,27 +1058,6 @@
         <state line="27" column="68" selection-start="709" selection-end="709" vertical-scroll-proportion="0.53571427" vertical-offset="0" max-vertical-offset="756" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/HotPagesTiilkit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="29" selection-start="758" selection-end="758" vertical-scroll-proportion="0.33730158" vertical-offset="0" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="3" selection-start="412" selection-end="412" vertical-scroll-proportion="0.1984127" vertical-offset="0" max-vertical-offset="756">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="23" selection-start="769" selection-end="781" vertical-scroll-proportion="0.6626984" vertical-offset="9" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/wikipedia/WikiClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="38" selection-start="3983" selection-end="3983" vertical-scroll-proportion="0.4037685" vertical-offset="960" max-vertical-offset="2685">
@@ -1075,9 +1088,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="17" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="21" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="9" selection-start="2498" selection-end="2498" vertical-scroll-proportion="0.5120482" vertical-offset="570" max-vertical-offset="3480">
+        <state line="26" column="8" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="3675">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/HotPagesTiilkit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="49" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.6626506" vertical-offset="0" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>
@@ -1136,7 +1172,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>cross_graph</last-edited>
+          <last-edited>GraphResearch</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

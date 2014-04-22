@@ -1,7 +1,10 @@
 package iub.api.graph;
 
+import com.google.common.base.Joiner;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -101,47 +104,55 @@ public class CrossLanguageGraph {
 
 
 
+    static final int BATCH_EN_ID_COUNT = 1000;
     private void createWikiAndCategoryGraph(ArrayList<String> enPageIdsArray) {
         // TODO: batch creation
         String [] enPageIds = new String[enPageIdsArray.size()];
         enPageIdsArray.toArray(enPageIds);
 
-        try {
-            PreparedStatement statement = getDB().prepareStatement(
-                    "SELECT c.id AS category_id, c.name AS category_title, pc.id AS page_id " +
-                    "FROM page_categories AS pc " +
-                    "JOIN Category AS c ON pc.pages = c.id " +
-                    "WHERE pc.id IN (?);");
-            Array idsArray = getDB().createArrayOf("INT", enPageIds);
-            statement.setArray(1, idsArray);
-            ResultSet result = statement.executeQuery();
-
-            while(result.next()){
-                int categoryId = result.getInt("category_id");
-                String categoryTitle = result.getString("category_title");
-                int pageId = result.getInt("page_id");
-
-                // TODO: add cache
-                // Create category node
-                // Cypher: MERGE (c:Category {Name: "Academic", Language: "En"})
-                String createCategoryNodeCypher = String.format(
-                        "MERGE (c:%s {id: %d, %title: \"%s\"})",
-                        NODE_CATEGORY, categoryId, escapeString(categoryTitle));
-                neo4jClient().query(createCategoryNodeCypher);
-
-                // Add Relation
-                // Cypher: MATCH (c:Category {id: 1}), (p:Page {id: 2}) MERGE p -[:BELONGS_TO_CATEGORY]-> c
-                String createRelationCypher = String.format(
-                        "MATCH (c:%s {id: %d}), (p:%s {id: %d}) MERGE p -[:%s]-> c",
-                        NODE_CATEGORY, categoryId,
-                        NODE_PAGE, pageId,
-                        RELATION_BELONGS_TO_CATEGORY);
-                neo4jClient().query(createRelationCypher);
+        int currentIdIndex = 0;
+        while(currentIdIndex+1 < enPageIdsArray.size()){
+            int nextIdIndex = currentIdIndex + BATCH_EN_ID_COUNT;
+            if(nextIdIndex > enPageIdsArray.size()){
+                nextIdIndex = enPageIdsArray.size();
             }
+            List<String> ids = enPageIdsArray.subList(currentIdIndex, nextIdIndex);
+            currentIdIndex = nextIdIndex;
 
+            try {
+                String sql = String.format("SELECT c.id AS category_id, c.name AS category_title, pc.id AS page_id " +
+                        "FROM page_categories AS pc " +
+                        "JOIN Category AS c ON pc.pages = c.id " +
+                        "WHERE pc.id IN (%s);", Joiner.on(", ").join(ids));
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+                Statement statement = getDB().createStatement();
+                ResultSet result = statement.executeQuery(sql);
+
+                while(result.next()){
+                    int categoryId = result.getInt("category_id");
+                    String categoryTitle = result.getString("category_title");
+                    int pageId = result.getInt("page_id");
+
+                    // TODO: add cache
+                    // Create category node
+                    // Cypher: MERGE (c:Category {Name: "Academic", Language: "En"})
+                    String createCategoryNodeCypher = String.format(
+                            "MERGE (c:%s {id: %d, title: \"%s\"})",
+                            NODE_CATEGORY, categoryId, escapeString(categoryTitle));
+                    neo4jClient().query(createCategoryNodeCypher);
+
+                    // Add Relation
+                    // Cypher: MATCH (c:Category {id: 1}), (p:Page {id: 2}) MERGE p -[:BELONGS_TO_CATEGORY]-> c
+                    String createRelationCypher = String.format(
+                            "MATCH (c:%s {id: %d}), (p:%s {id: %d}) MERGE p -[:%s]-> c",
+                            NODE_CATEGORY, categoryId,
+                            NODE_PAGE, pageId,
+                            RELATION_BELONGS_TO_CATEGORY);
+                    neo4jClient().query(createRelationCypher);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
