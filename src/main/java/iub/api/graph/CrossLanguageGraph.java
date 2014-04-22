@@ -48,6 +48,15 @@ public class CrossLanguageGraph {
     }
 
     public void createGraphByKeywords(ArrayList<String> enKeywords, ArrayList<String> zhKeywords, int relationOptions){
+        if(!neo4jClient().testConnection()){
+            System.out.println("[graph] Unable to connect to neo4j with " + config.getProperty(CONFIG_NEO4J_URL));
+            return;
+        }
+
+        if(!testDBConnection()){
+            return;
+        }
+
         ArrayList<String> enPageIds = createKeywordAndWikiGraph(enKeywords, ENGLISH, relationOptions);
         enPageIds.addAll(createKeywordAndWikiGraph(zhKeywords, CHINESE, relationOptions));
         createWikiAndCategoryGraph(enPageIds);
@@ -136,8 +145,11 @@ public class CrossLanguageGraph {
         }
     }
 
-    private Connection _mysqlConnection;
+    private boolean testDBConnection(){
+        return getDB() != null;
+    }
 
+    private Connection _mysqlConnection;
     private Connection getDB() {
         if(this._mysqlConnection != null){
             return this._mysqlConnection;
@@ -158,7 +170,10 @@ public class CrossLanguageGraph {
         try {
             this._mysqlConnection = DriverManager.getConnection(connectionStr);
         } catch (SQLException e) {
+            System.out.println("[graph] Unable to connect to MySQL with following link:");
+            System.out.println(" -- " + connectionStr + "\n");
             e.printStackTrace();
+            return null;
         }
 
         return this._mysqlConnection;

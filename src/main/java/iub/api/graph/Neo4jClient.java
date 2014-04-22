@@ -34,4 +34,14 @@ public class Neo4jClient {
         JSONObject result = (JSONObject)JSONValue.parse(cypherResult);
         return result;
     }
+
+    public boolean testConnection(){
+        try{
+            WebResource resource = Client.create().resource( this.serverUri );
+            ClientResponse neo4jResponse = resource.post( ClientResponse.class );
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 }
