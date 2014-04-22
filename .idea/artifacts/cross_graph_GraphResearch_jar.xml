@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="cross_graph-GraphResearch:jar">
+    <output-path>$PROJECT_DIR$/out/</output-path>
+    <root id="archive" name="GraphResearch.jar">
+      <element id="module-output" name="GraphResearch" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.3.1/commons-lang3-3.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/jersey/jersey-core/1.17.1/jersey-core-1.17.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/jersey/jersey-client/1.17.1/jersey-client-1.17.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

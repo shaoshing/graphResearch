@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="hot_page:jar">
-    <output-path>$PROJECT_DIR$/out</output-path>
-    <root id="archive" name="hot_page.jar">
-      <element id="module-output" name="hot_page" />
-      <element id="module-output" name="GraphResearch" />
-    </root>
-  </artifact>
-</component>
