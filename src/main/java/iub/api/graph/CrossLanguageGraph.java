@@ -161,12 +161,12 @@ public class CrossLanguageGraph {
             e.printStackTrace();
         }
 
-        String connectionStr = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&port=%s",
+        String connectionStr = String.format("jdbc:mysql://%s:%s/%s?user=%s&password=%s",
                 config.getProperty(CONFIG_DB_HOST),
+                config.getProperty(CONFIG_DB_PORT),
                 config.getProperty(CONFIG_DB_NAME),
                 config.getProperty(CONFIG_DB_USER),
-                config.getProperty(CONFIG_DB_PSWD),
-                config.getProperty(CONFIG_DB_PORT));
+                config.getProperty(CONFIG_DB_PSWD));
         try {
             this._mysqlConnection = DriverManager.getConnection(connectionStr);
         } catch (SQLException e) {
