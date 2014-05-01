@@ -52,7 +52,7 @@ public class CrossLanguageGraph {
 
     public void createGraphByKeywords(ArrayList<String> enKeywords, ArrayList<String> zhKeywords, int relationOptions){
         if(!neo4jClient().testConnection()){
-            System.out.println("[graph] Unable to connect to neo4j with " + config.getProperty(CONFIG_NEO4J_URL));
+            say("[graph] Unable to connect to neo4j with " + config.getProperty(CONFIG_NEO4J_URL));
             return;
         }
 
@@ -60,13 +60,13 @@ public class CrossLanguageGraph {
             return;
         }
 
-        System.out.println("[graph] Creating keywords and wiki graph - EN");
+        say("[graph] Creating keywords and wiki graph - EN");
         ArrayList<String> enPageIds = createKeywordAndWikiGraph(enKeywords, ENGLISH, relationOptions);
 
-        System.out.println("[graph] Creating keywords and wiki graph - ZH");
+        say("[graph] Creating keywords and wiki graph - ZH");
         enPageIds.addAll(createKeywordAndWikiGraph(zhKeywords, CHINESE, relationOptions));
 
-        System.out.println("[graph] Creating wiki and category graph");
+        say("[graph] Creating wiki and category graph");
         createWikiAndCategoryGraph(enPageIds);
     }
 
@@ -93,11 +93,14 @@ public class CrossLanguageGraph {
             }
 
             for(String keyword: keywords){
+                say(" -- [%s] finding pages", keyword);
                 ArrayList<SearchClient.Page> pages = searchClient.search(keyword, searchLanguage, relationOption);
+                say(" -- [%s] found %d pages", keyword, pages.size());
+
+                say(" -- [%s] creating neo4j nodes", keyword);
                 for(SearchClient.Page page: pages){
                     createNodesAndRelations(keyword, languageName, page, nodePageTitleAttr, relationOption);
                 }
-
                 for(SearchClient.Page page: pages){
                     pageIds.add(page.enId);
                 }
@@ -111,7 +114,8 @@ public class CrossLanguageGraph {
 
     static final int BATCH_EN_ID_COUNT = 1000;
     private void createWikiAndCategoryGraph(ArrayList<String> enPageIdsArray) {
-        // TODO: batch creation
+        say(" -- processing categories for %s EN pages", enPageIdsArray.size());
+
         String [] enPageIds = new String[enPageIdsArray.size()];
         enPageIdsArray.toArray(enPageIds);
 
@@ -121,6 +125,8 @@ public class CrossLanguageGraph {
             if(nextIdIndex > enPageIdsArray.size()){
                 nextIdIndex = enPageIdsArray.size();
             }
+
+            say(" -- querying categories [%d - %d]", currentIdIndex+1, nextIdIndex);
             List<String> ids = enPageIdsArray.subList(currentIdIndex, nextIdIndex);
             currentIdIndex = nextIdIndex;
 
@@ -133,6 +139,7 @@ public class CrossLanguageGraph {
                 Statement statement = getDB().createStatement();
                 ResultSet result = statement.executeQuery(sql);
 
+                say(" -- creating neo4j nodes");
                 while(result.next()){
                     int categoryId = result.getInt("category_id");
                     String categoryTitle = result.getString("category_title");
@@ -186,8 +193,8 @@ public class CrossLanguageGraph {
         try {
             this._mysqlConnection = DriverManager.getConnection(connectionStr);
         } catch (SQLException e) {
-            System.out.println("[graph] Unable to connect to MySQL with following link:");
-            System.out.println(" -- " + connectionStr + "\n");
+            say("[graph] Unable to connect to MySQL with following link:");
+            say(" -- " + connectionStr);
             e.printStackTrace();
             return null;
         }
@@ -241,5 +248,9 @@ public class CrossLanguageGraph {
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId,
                 RELATION_NAMES_MAPPING[relationOption], page.score);
         neo4jClient().query(createRelationCypher);
+    }
+
+    static private void say(String str, Object... args){
+        System.out.printf(str+"\n", args);
     }
 }

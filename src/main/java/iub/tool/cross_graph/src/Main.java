@@ -38,6 +38,8 @@ public class Main {
         CrossLanguageGraph graph = new CrossLanguageGraph(prop);
         int relationOption = Integer.parseInt(prop.getProperty("graph.match_type", "1"));
         graph.createGraphByKeywords(enKeywords, zhKeywords, relationOption);
+
+        System.out.println("\nDone!");
     }
 
     static private ArrayList<String> loadKeywords(String path) throws IOException {
