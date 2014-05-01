@@ -33,6 +33,7 @@ public class CrossLanguageGraph {
     static private final String NODE_PAGE = "Page";
     static private final String NODE_PAGE_EN_ID_ATTR = "EnId";
     static private final String NODE_PAGE_ZH_ID_ATTR = "ZhId";
+    static private final String NODE_PAGE_REDIRECTS_ATTR = "RedirectedTitles";
     static private final String NODE_CATEGORY = "Category";
 
     static private final String RELATION_EXACT_MATCH_TITLE = "EXACT_MATCH_TITLE";
@@ -230,9 +231,14 @@ public class CrossLanguageGraph {
         //      MERGE (:Page {EnId: 2222, ZhId: 3333})
         //      MATCH (n:Page {EnId: 2222}) SET n.EnTitle = "Hello" // or n.ZhTitle = "你好"
         // TODO: add cache
-        // TODO: add redirected titles
-        String createPageNodeCypher = String.format( "MERGE (:%s {%s: %s, %s: %s})",
-                NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, NODE_PAGE_ZH_ID_ATTR, page.zhId);
+        ArrayList<String> escapedRedirectedTitles = new ArrayList<String>();
+        for(String title: page.redirectedTitles){
+            escapedRedirectedTitles.add(escapeString(title));
+        }
+        String createPageNodeCypher = String.format( "MERGE (:%s {%s: %s, %s: %s, %s: [\"%s\"]})",
+                NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId,
+                NODE_PAGE_ZH_ID_ATTR, page.zhId,
+                NODE_PAGE_REDIRECTS_ATTR, Joiner.on("\", \"").join(escapedRedirectedTitles));
         neo4jClient().query(createPageNodeCypher);
         // TODO: add cache
         String setPageNodeTitleCypher = String.format( "MATCH (n:%s {%s: %s}) SET n.%s = \"%s\"",
