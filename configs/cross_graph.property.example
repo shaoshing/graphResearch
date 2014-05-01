@@ -14,10 +14,12 @@ lucene.index.en=
 lucene.index.zh=
 
 # Graph
-#   Path to the file with en keywords
-graph.keywords.en=
-#   Path to the file with zh keywords
-graph.keywords.zh=
+#   Path to the CSV file with en keywords
+graph.en_keywords.path=
+graph.en_keywords.column=2
+#   Path to the CSV file with zh keywords
+graph.zh_keywords.path=
+graph.zh_keywords.column=2
 #   Control how wiki pages are searched with the keywords. Options are:
 #       1: Exact Title Match
 #       2: Partial Title Match

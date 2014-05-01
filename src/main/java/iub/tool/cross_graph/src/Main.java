@@ -29,8 +29,10 @@ public class Main {
         }
 
         System.out.println("\nLoading keywords");
-        ArrayList<String> enKeywords = loadKeywords(prop.getProperty("graph.keywords.en"));
-        ArrayList<String> zhKeywords = loadKeywords(prop.getProperty("graph.keywords.zh"));
+        ArrayList<String> enKeywords = loadKeywords(prop.getProperty("graph.en_keywords.path"),
+                prop.getProperty("graph.en_keywords.column"));
+        ArrayList<String> zhKeywords = loadKeywords(prop.getProperty("graph.zh_keywords.path"),
+                prop.getProperty("graph.en_keywords.column"));
         System.out.printf(" -- en keywords %d\n", enKeywords.size());
         System.out.printf(" -- zh keywords %d\n", zhKeywords.size());
 
@@ -42,7 +44,9 @@ public class Main {
         System.out.println("\nDone!");
     }
 
-    static private ArrayList<String> loadKeywords(String path) throws IOException {
+    static private ArrayList<String> loadKeywords(String path, String csvColumn) throws IOException {
+
+
         InputStream fis = null;
         try {
             fis = new FileInputStream(path);
@@ -52,10 +56,16 @@ public class Main {
         }
         BufferedReader br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
 
+        int index = Integer.parseInt(csvColumn)-1;
         String keyword;
         ArrayList<String> enKeywords = new ArrayList<String>();
         while ((keyword = br.readLine()) != null) {
-            enKeywords.add(keyword);
+            String[] fields = keyword.split(",");
+            if(fields.length < index+1){
+                System.out.println(" -- not enough columns: " + keyword);
+                continue;
+            }
+            enKeywords.add(fields[index]);
         }
         br.close();
 
