@@ -94,12 +94,15 @@ public class CrossLanguageGraph {
                 continue;
             }
 
-            for(String keyword: keywords){
-                say(" -- [%s] searching pages", keyword);
-                ArrayList<SearchClient.Page> pages = searchClient.search(keyword, searchLanguage, relationOption);
-                say(" -- [%s] found %d pages", keyword, pages.size());
+            for(int i = 0; i < keywords.size(); i++){
+                String keyword = keywords.get(i);
+                float progress = ((i + 1) / (float) keywords.size())*100;
+                say(" -- %2.2f%% [%s] searching pages", progress, keyword);
 
-                say(" -- [%s] creating neo4j nodes", keyword);
+                ArrayList<SearchClient.Page> pages = searchClient.search(keyword, searchLanguage, relationOption);
+                say(" -- %2.2f%% [%s] found %d pages", progress, keyword, pages.size());
+
+                say(" -- %2.2f%% [%s] creating neo4j nodes", progress, keyword);
                 for(SearchClient.Page page: pages){
                     createNodesAndRelations(keyword, languageName, page, nodePageTitleAttr, relationOption);
                 }
