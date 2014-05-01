@@ -60,11 +60,13 @@ public class CrossLanguageGraph {
             return;
         }
 
-
+        System.out.println("[graph] Creating keywords and wiki graph - EN");
         ArrayList<String> enPageIds = createKeywordAndWikiGraph(enKeywords, ENGLISH, relationOptions);
 
+        System.out.println("[graph] Creating keywords and wiki graph - ZH");
         enPageIds.addAll(createKeywordAndWikiGraph(zhKeywords, CHINESE, relationOptions));
 
+        System.out.println("[graph] Creating wiki and category graph");
         createWikiAndCategoryGraph(enPageIds);
     }
 
@@ -147,9 +149,9 @@ public class CrossLanguageGraph {
                     // Add Relation
                     // Cypher: MATCH (c:Category {id: 1}), (p:Page {id: 2}) MERGE p -[:BELONGS_TO_CATEGORY]-> c
                     String createRelationCypher = String.format(
-                            "MATCH (c:%s {id: %d}), (p:%s {id: %d}) MERGE p -[:%s]-> c",
+                            "MATCH (c:%s {id: %d}), (p:%s {%s: %d}) MERGE p -[:%s]-> c",
                             NODE_CATEGORY, categoryId,
-                            NODE_PAGE, pageId,
+                            NODE_PAGE, NODE_PAGE_EN_ID_ATTR, pageId,
                             RELATION_BELONGS_TO_CATEGORY);
                     neo4jClient().query(createRelationCypher);
                 }
@@ -234,7 +236,7 @@ public class CrossLanguageGraph {
         // Cypher: MATCH (k:Keyword {Name: "Academic", Language: "En"}), (p:Page {EnId: 2222})
         //         MERGE p-[:HasKeyword]->k
         String createRelationCypher = String.format(
-                "MATCH (k:%s {%s:\"%s\"}), (p:%s {%s:%s}) MERGE p-[r:%s]->k SET r.Score = %d",
+                "MATCH (k:%s {%s:\"%s\", %s: \"%s\"}), (p:%s {%s:%s}) MERGE p-[r:%s]->k SET r.Score = %d",
                 NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, keyword, NODE_KEYWORD_LANG_ATTR, languageName,
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId,
                 RELATION_NAMES_MAPPING[relationOption], page.score);

@@ -28,13 +28,13 @@ public class Main {
             return;
         }
 
-        System.out.println("\nLoad keywords");
+        System.out.println("\nLoading keywords");
         ArrayList<String> enKeywords = loadKeywords(prop.getProperty("graph.keywords.en"));
         ArrayList<String> zhKeywords = loadKeywords(prop.getProperty("graph.keywords.zh"));
         System.out.printf(" -- en keywords %d\n", enKeywords.size());
         System.out.printf(" -- zh keywords %d\n", zhKeywords.size());
 
-        System.out.println("\nCreate graph");
+        System.out.println("\nCreating graph");
         CrossLanguageGraph graph = new CrossLanguageGraph(prop);
         int relationOption = Integer.parseInt(prop.getProperty("graph.match_type", "1"));
         graph.createGraphByKeywords(enKeywords, zhKeywords, relationOption);

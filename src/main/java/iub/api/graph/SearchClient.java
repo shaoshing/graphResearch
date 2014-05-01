@@ -64,6 +64,7 @@ public class SearchClient {
                 results = searchEn.getContent(keyword, enLucenePath);
             }
         } catch (Exception e) {
+            System.out.println("[lucene] Exception raised. Maybe you have a incorrect EN index path.");
             e.printStackTrace();
         }
 
@@ -92,6 +93,7 @@ public class SearchClient {
                 results = searchZh.getContent(keyword, zhLucenePath);
             }
         } catch (Exception e) {
+            System.out.println("[lucene] Exception raised. Maybe you have a incorrect ZH index path.");
             e.printStackTrace();
         }
 
