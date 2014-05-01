@@ -3,9 +3,7 @@ package iub.api.graph;
 import com.google.common.base.Joiner;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * Created by shaoshing on 4/8/14.
@@ -233,6 +231,9 @@ public class CrossLanguageGraph {
         return escaped;
     }
 
+    private HashMap<String, Boolean> keywordCache = new HashMap<String, Boolean>();
+    private HashMap<String, Boolean> pageCache = new HashMap<String, Boolean>();
+    private HashMap<String, Boolean> relationCache = new HashMap<String, Boolean>();
     private void createNodesAndRelations(
             String keyword, String languageName, SearchClient.Page page, String nodePageTitleAttr, int relationOption){
 
@@ -248,7 +249,6 @@ public class CrossLanguageGraph {
         // Cypher:
         //      MERGE (:Page {EnId: 2222, ZhId: 3333})
         //      MATCH (n:Page {EnId: 2222}) SET n.EnTitle = "Hello" // or n.ZhTitle = "你好"
-        // TODO: add cache
         ArrayList<String> escapedRedirectedTitles = new ArrayList<String>();
         for(String title: page.redirectedTitles){
             escapedRedirectedTitles.add(escapeString(title));
@@ -259,7 +259,6 @@ public class CrossLanguageGraph {
                 NODE_PAGE_REDIRECTS_ATTR, Joiner.on("\", \"").join(escapedRedirectedTitles)
                 );
         neo4jClient().query(createPageNodeCypher);
-        // TODO: add cache
         String setPageNodeTitleCypher = String.format( "MATCH (n:%s {%s: %s}) SET n.%s = \"%s\"",
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, nodePageTitleAttr, escapeString(page.title));
         neo4jClient().query(setPageNodeTitleCypher);
