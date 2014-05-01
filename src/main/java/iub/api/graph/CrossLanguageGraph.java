@@ -249,11 +249,13 @@ public class CrossLanguageGraph {
     private void createNodesAndRelations(
             String keyword, String languageName, SearchClient.Page page, String nodePageTitleAttr, int relationOption){
 
+        String nodeKeywordName = languageName + NODE_KEYWORD;
+
         // Create keyword node
         // Cypher: MERGE (n:Keyword {Name: "Academic", Language: "En"})
         String createKeywordNodeCypher = String.format(
                 "MERGE (n:%s {%s: \"%s\", %s: \"%s\"})",
-                NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, escapeString(keyword),
+                nodeKeywordName, NODE_KEYWORD_NAME_ATTR, escapeString(keyword),
                 NODE_KEYWORD_LANG_ATTR, languageName);
         neo4jClient().query(createKeywordNodeCypher);
 
@@ -280,7 +282,7 @@ public class CrossLanguageGraph {
         //         MERGE p-[:HasKeyword]->k
         String createRelationCypher = String.format(
                 "MATCH (k:%s {%s:\"%s\", %s: \"%s\"}), (p:%s {%s:%s}) MERGE p-[r:%s]->k SET r.Score = %d",
-                NODE_KEYWORD, NODE_KEYWORD_NAME_ATTR, keyword, NODE_KEYWORD_LANG_ATTR, languageName,
+                nodeKeywordName, NODE_KEYWORD_NAME_ATTR, keyword, NODE_KEYWORD_LANG_ATTR, languageName,
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId,
                 RELATION_NAMES_MAPPING[relationOption], page.score);
         neo4jClient().query(createRelationCypher);
