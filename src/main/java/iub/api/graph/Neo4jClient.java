@@ -88,11 +88,16 @@ public class Neo4jClient {
 
     private void saveCache(){
         try{
-            FileOutputStream fileOut = new FileOutputStream(CACHE_FILE_PATH);
+            File tmpFile = File.createTempFile("neo4j", ".tmp");
+            FileOutputStream fileOut = new FileOutputStream(tmpFile);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(cypherCache);
             out.close();
             fileOut.close();
+
+            File file = new File(CACHE_FILE_PATH);
+            file.delete();
+            tmpFile.renameTo(file);
         }catch(IOException e){
             e.printStackTrace();
         }
