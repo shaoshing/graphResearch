@@ -60,8 +60,11 @@ public class CrossLanguageGraph {
             return;
         }
 
+
         ArrayList<String> enPageIds = createKeywordAndWikiGraph(enKeywords, ENGLISH, relationOptions);
+
         enPageIds.addAll(createKeywordAndWikiGraph(zhKeywords, CHINESE, relationOptions));
+
         createWikiAndCategoryGraph(enPageIds);
     }
 
@@ -88,7 +91,7 @@ public class CrossLanguageGraph {
             }
 
             for(String keyword: keywords){
-                SearchClient.Page[] pages = searchClient.search(keyword, searchLanguage, relationOption);
+                ArrayList<SearchClient.Page> pages = searchClient.search(keyword, searchLanguage, relationOption);
                 for(SearchClient.Page page: pages){
                     createNodesAndRelations(keyword, languageName, page, nodePageTitleAttr, relationOption);
                 }
@@ -218,6 +221,7 @@ public class CrossLanguageGraph {
         //      MERGE (:Page {EnId: 2222, ZhId: 3333})
         //      MATCH (n:Page {EnId: 2222}) SET n.EnTitle = "Hello" // or n.ZhTitle = "你好"
         // TODO: add cache
+        // TODO: add redirected titles
         String createPageNodeCypher = String.format( "MERGE (:%s {%s: %s, %s: %s})",
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, NODE_PAGE_ZH_ID_ATTR, page.zhId);
         neo4jClient().query(createPageNodeCypher);

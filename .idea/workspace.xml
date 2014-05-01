@@ -8,11 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7367f9aa-54b1-49c7-8189-af0ac9e28cc5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_r09.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GraphResearch.iml" afterPath="$PROJECT_DIR$/GraphResearch.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" afterPath="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/cross_graph_GraphResearch_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/cross_graph_GraphResearch_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Wikipedia.iws" />
@@ -80,17 +79,23 @@
       <file leaf-file-name="Neo4jClient.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="19" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+            <state line="22" column="19" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchClient.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SearchClient.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="17" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <folding />
+            <state line="4" column="40" selection-start="133" selection-end="133" vertical-scroll-proportion="0.07936508" vertical-offset="0" max-vertical-offset="1755">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1752#1791#0" expanded="true" />
+                <element signature="e#2360#2366#0" expanded="true" />
+                <element signature="e#2894#2933#0" expanded="true" />
+                <element signature="e#3502#3508#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,18 +103,16 @@
       <file leaf-file-name="CrossLanguageGraph.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="8" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="3675">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="94" column="44" selection-start="4214" selection-end="4214" vertical-scroll-proportion="0.0" vertical-offset="984" max-vertical-offset="3660">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HotPagesTiilkit.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HotPagesTiilkit.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/HotPagesTiilkit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="49" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.6626506" vertical-offset="0" max-vertical-offset="1275">
+            <state line="21" column="29" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -118,7 +121,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="21" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="690">
+            <state line="36" column="21" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="690">
               <folding />
             </state>
           </provider>
@@ -127,10 +130,8 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="9" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="990">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="28" column="9" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1020">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,11 +175,11 @@
         <option value="$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/HotPagesTiilkit.java" />
         <option value="$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/src/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java" />
       </list>
     </option>
   </component>
@@ -243,6 +244,7 @@
     <ignored-problems>
       <problem id="unused-library(library:project:lib)" />
       <problem id="unused-library(library:project:Maven: mysql:mysql-connector-java:5.1.6)" />
+      <problem id="unused-library(library:project:search_wikipedia_en)" />
     </ignored-problems>
   </component>
   <component name="ProjectView">
@@ -258,7 +260,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -502,22 +503,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GraphResearch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GraphResearch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="configs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -547,7 +535,7 @@
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="build/corss_graph.jar" />
-    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/com/google/guava/guava/r09/guava-r09.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/wikipedia_English_index_search.jar!/" />
     <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="RecentsManager">
@@ -563,6 +551,26 @@
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
@@ -587,26 +595,6 @@
       </MavenSettings>
       <method />
     </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -615,20 +603,17 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="XSLT" factoryName="XSLT">
-      <option name="myOutputFile" />
-      <option name="myOpenOutputFile" value="false" />
-      <option name="myOpenInBrowser" value="false" />
-      <option name="mySmartErrorHandling" value="true" />
-      <option name="myRunnerPort" value="34873" />
-      <option name="myVmArguments" />
-      <option name="myWorkingDirectory" />
-      <option name="myModule" />
-      <option name="myJdk" />
-      <parameters />
-      <OutputType value="CONSOLE" save-to-file="false" />
-      <FileType name="XML" />
-      <JdkChoice value="FROM_MODULE" />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -658,17 +643,20 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -788,18 +776,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32908162" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884902" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908162" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19506727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908162" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32908162" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908162" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -827,9 +815,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/wikipedia/WikiClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="14" selection-start="2144" selection-end="2144" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="2685">
-          <folding />
-        </state>
+        <state line="64" column="14" selection-start="2144" selection-end="2144" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="2685" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/src/Main.java">
@@ -841,9 +827,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/cross_graph.property.example">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="495">
-          <folding />
-        </state>
+        <state line="14" column="26" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="495" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java">
@@ -856,17 +840,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="145" column="30" selection-start="6345" selection-end="6345" vertical-scroll-proportion="0.0" vertical-offset="1869" max-vertical-offset="3360">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/wikipedia/WikiClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="68" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2685">
-          <folding />
-        </state>
+        <state line="36" column="68" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2685" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/src/Main.java">
@@ -878,9 +858,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/cross_graph.property.example">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="495">
-          <folding />
-        </state>
+        <state line="14" column="26" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="495" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db_migration/category.rb">
@@ -1060,16 +1038,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/wikipedia/WikiClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="38" selection-start="3983" selection-end="3983" vertical-scroll-proportion="0.4037685" vertical-offset="960" max-vertical-offset="2685">
-          <folding />
-        </state>
+        <state line="94" column="38" selection-start="3983" selection-end="3983" vertical-scroll-proportion="0.4037685" vertical-offset="960" max-vertical-offset="2685" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/cross_graph.property.example">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="210" selection-end="210" vertical-scroll-proportion="0.2777778" vertical-offset="0" max-vertical-offset="756">
-          <folding />
-        </state>
+        <state line="14" column="26" selection-start="210" selection-end="210" vertical-scroll-proportion="0.2777778" vertical-offset="0" max-vertical-offset="756" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/Neo4jClient.java">
@@ -1082,15 +1056,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/cross_graph/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="9" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="990">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="17" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
@@ -1102,19 +1067,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/HotPagesTiilkit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="8" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="3675">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="21" column="29" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/iub/tool/hot_page/src/HotPagesTiilkit.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/CrossLanguageGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="49" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.6626506" vertical-offset="0" max-vertical-offset="1275">
+        <state line="94" column="44" selection-start="4214" selection-end="4214" vertical-scroll-proportion="0.0" vertical-offset="984" max-vertical-offset="3660">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/iub/api/graph/SearchClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="40" selection-start="133" selection-end="133" vertical-scroll-proportion="0.07936508" vertical-offset="0" max-vertical-offset="1800">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1752#1791#0" expanded="true" />
+            <element signature="e#2360#2366#0" expanded="true" />
+            <element signature="e#2894#2933#0" expanded="true" />
+            <element signature="e#3502#3508#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1124,7 +1100,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>cross_graph:jar</last-edited>
+          <last-edited>cross_graph-GraphResearch:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1195,7 +1171,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.googlecode.json-simple:json-simple:1.1.1</last-edited>
+          <last-edited>Maven: org.hamcrest:hamcrest-core:1.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
