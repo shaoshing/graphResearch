@@ -298,6 +298,7 @@ public class CrossLanguageGraph {
             return;
         }
 
+        neo4jClient().resetCache();
         neo4jClient().execute("MATCH a-[b]-(c) DELETE a, b, c");
         neo4jClient().execute("MATCH a DELETE a");
     }

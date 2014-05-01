@@ -3,6 +3,8 @@ package iub.api.graph;
 /**
  * Created by shaoshing on 4/8/14.
  */
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,15 +18,19 @@ import org.json.simple.JSONValue;
 public class Neo4jClient {
 
     private String serverUri;
+    static private String CACHE_FILE_PATH = System.getProperty("java.io.tmpdir") + "grpah-neo4j.cache";
+    private HashMap<Integer, Boolean> cypherCache;
 
     public Neo4jClient(String serverUri){
         this.serverUri = serverUri;
+        System.out.println(CACHE_FILE_PATH);
+
+        cypherCache = new HashMap<Integer, Boolean>();
+        loadCache();
     }
 
-    private HashMap<Integer, Boolean> cypherCache = new HashMap<Integer, Boolean>();
-
     // NEO4J REST API: http://docs.neo4j.org/chunked/stable/rest-api-cypher.html
-    public void query(String cypherQuery){
+    public void execute(String cypherQuery){
         if(cypherCache.get(cypherQuery.hashCode()) != null){
             return;
         }
@@ -44,6 +50,7 @@ public class Neo4jClient {
         }
 
         cypherCache.put(cypherQuery.hashCode(), true);
+        saveCache();
     }
 
     public boolean testConnection(){
@@ -54,5 +61,40 @@ public class Neo4jClient {
             return false;
         }
         return true;
+    }
+
+    public void loadCache(){
+        File cacheFile = new File(CACHE_FILE_PATH);
+
+        if(!cacheFile.exists()){
+            return;
+        }
+
+        try{
+            FileInputStream fileIn = new FileInputStream(CACHE_FILE_PATH);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            cypherCache = (HashMap<Integer, Boolean>) in.readObject();
+            in.close();
+            fileIn.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void resetCache(){
+        cypherCache = new HashMap<Integer, Boolean>();
+        saveCache();
+    }
+
+    private void saveCache(){
+        try{
+            FileOutputStream fileOut = new FileOutputStream(CACHE_FILE_PATH);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(cypherCache);
+            out.close();
+            fileOut.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }
