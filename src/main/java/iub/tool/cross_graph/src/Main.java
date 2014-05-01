@@ -14,12 +14,17 @@ public class Main {
     static final String OUTPUT_FOLDER = "output";
 
     static public void main(String[] args) throws IOException {
-        if (args.length != 1){
+        if (args.length < 1){
             System.out.println("Please specify the path of the config file. Example: java -jar cross_graph.jar path/to/the/file.property");
             return;
         }
 
         String configPath = args[0];
+        Boolean rebuild = false;
+        if (args.length == 2 && args[1].equals("rebuild")){
+            rebuild = true;
+        }
+
         Properties prop = new Properties();
         try {
             prop.load(new FileInputStream(configPath));
@@ -41,7 +46,7 @@ public class Main {
 
         System.out.println("\nCreating graph");
         CrossLanguageGraph graph = new CrossLanguageGraph(prop);
-        if(prop.getProperty("graph.empty_db_before_creation", "false").equals("true")){
+        if(rebuild){
             System.out.println(" -- truncating Neo4j Database");
             graph.truncateNeo4jDatabase();
         }

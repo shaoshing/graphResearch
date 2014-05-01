@@ -25,7 +25,6 @@ graph.zh_keywords.column=2
 #       2: Partial Title Match
 #       4: Partial Content Match
 graph.match_type=1
-graph.empty_db_before_creation=false
 # Exclude categories within the specified CSV file. Usually these are Wikipedia Administrative Categories.
 # graph.exclude_categories=path/to/csv
 
