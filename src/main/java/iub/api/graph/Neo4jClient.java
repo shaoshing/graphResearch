@@ -31,6 +31,11 @@ public class Neo4jClient {
         String cypherResult = neo4jResponse.getEntity( String.class );
         neo4jResponse.close();
 
+        if(neo4jResponse.getStatus() != 200){
+            System.out.println("[neo4j] InvalidSyntax");
+            System.out.println(cypherQuery);
+        }
+
         JSONObject result = (JSONObject)JSONValue.parse(cypherResult);
         return result;
     }

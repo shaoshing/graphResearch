@@ -35,6 +35,7 @@ public class CrossLanguageGraph {
     static private final String NODE_PAGE_ZH_ID_ATTR = "ZhId";
     static private final String NODE_PAGE_REDIRECTS_ATTR = "RedirectedTitles";
     static private final String NODE_CATEGORY = "Category";
+    static private final String NODE_CATEGORY_TITLE_ATTR = "Title";
 
     static private final String RELATION_EXACT_MATCH_TITLE = "EXACT_MATCH_TITLE";
     static private final String RELATION_PARTIAL_MATCH_TITLE = "PARTIAL_MATCH_TITLE";
@@ -94,7 +95,7 @@ public class CrossLanguageGraph {
             }
 
             for(String keyword: keywords){
-                say(" -- [%s] finding pages", keyword);
+                say(" -- [%s] searching pages", keyword);
                 ArrayList<SearchClient.Page> pages = searchClient.search(keyword, searchLanguage, relationOption);
                 say(" -- [%s] found %d pages", keyword, pages.size());
 
@@ -150,8 +151,8 @@ public class CrossLanguageGraph {
                     // Create category node
                     // Cypher: MERGE (c:Category {Name: "Academic", Language: "En"})
                     String createCategoryNodeCypher = String.format(
-                            "MERGE (c:%s {id: %d, title: \"%s\"})",
-                            NODE_CATEGORY, categoryId, escapeString(categoryTitle));
+                            "MERGE (c:%s {id: %d, %s: \"%s\"})",
+                            NODE_CATEGORY, categoryId, NODE_CATEGORY_TITLE_ATTR, escapeString(categoryTitle));
                     neo4jClient().query(createCategoryNodeCypher);
 
                     // Add Relation
@@ -167,6 +168,12 @@ public class CrossLanguageGraph {
                 e.printStackTrace();
             }
         }
+
+        say(" -- deleting non-shared categories");
+        String deleteNonSharedCategoriesCypher = "MATCH (c:Category) <-[BELONGS_TO_CATEGORY]- p " +
+                "WITH c, count(p) AS pages WHERE pages = 1 " +
+                "MATCH c <-[b:BELONGS_TO_CATEGORY]- () DELETE c, b;";
+        neo4jClient().query(deleteNonSharedCategoriesCypher);
     }
 
     private boolean testDBConnection(){
@@ -211,8 +218,17 @@ public class CrossLanguageGraph {
         return _neo4jClient;
     }
 
+
+    static private String UNICODE_STUB = "@@@@@@";
+    static private String UNICODE = "\\\\u";
     static private String escapeString(String str){
-        return org.apache.commons.lang3.StringEscapeUtils.escapeJson(str);
+        String escaped = org.apache.commons.lang3.StringEscapeUtils.escapeJson(str);
+
+        escaped = escaped.replaceAll(UNICODE, UNICODE_STUB).
+                replaceAll("\\\\", "\\\\\\\\").
+                replaceAll(UNICODE_STUB, UNICODE);
+
+        return escaped;
     }
 
     private void createNodesAndRelations(
@@ -238,7 +254,8 @@ public class CrossLanguageGraph {
         String createPageNodeCypher = String.format( "MERGE (:%s {%s: %s, %s: %s, %s: [\"%s\"]})",
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId,
                 NODE_PAGE_ZH_ID_ATTR, page.zhId,
-                NODE_PAGE_REDIRECTS_ATTR, Joiner.on("\", \"").join(escapedRedirectedTitles));
+                NODE_PAGE_REDIRECTS_ATTR, Joiner.on("\", \"").join(escapedRedirectedTitles)
+                );
         neo4jClient().query(createPageNodeCypher);
         // TODO: add cache
         String setPageNodeTitleCypher = String.format( "MATCH (n:%s {%s: %s}) SET n.%s = \"%s\"",
