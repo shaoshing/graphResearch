@@ -112,8 +112,6 @@ public class CrossLanguageGraph {
         return pageIds;
     }
 
-
-
     static final int BATCH_EN_ID_COUNT = 1000;
     private void createWikiAndCategoryGraph(ArrayList<String> enPageIdsArray) {
         say(" -- processing categories for %s EN pages", enPageIdsArray.size());
@@ -275,5 +273,15 @@ public class CrossLanguageGraph {
 
     static private void say(String str, Object... args){
         System.out.printf(str+"\n", args);
+    }
+
+    public void truncateNeo4jDatabase(){
+        if(!neo4jClient().testConnection()){
+            say("[graph] Unable to connect to neo4j with " + config.getProperty(CONFIG_NEO4J_URL));
+            return;
+        }
+
+        neo4jClient().query("MATCH a-[b]-(c) DELETE a, b, c");
+        neo4jClient().query("MATCH a DELETE a");
     }
 }

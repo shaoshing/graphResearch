@@ -30,14 +30,22 @@ public class Main {
 
         System.out.println("\nLoading keywords");
         ArrayList<String> enKeywords = loadKeywords(prop.getProperty("graph.en_keywords.path"),
-                prop.getProperty("graph.en_keywords.column"));
+                prop.getProperty("graph.en_keywords.column", "1"));
         ArrayList<String> zhKeywords = loadKeywords(prop.getProperty("graph.zh_keywords.path"),
-                prop.getProperty("graph.en_keywords.column"));
+                prop.getProperty("graph.en_keywords.column", "1"));
         System.out.printf(" -- en keywords %d\n", enKeywords.size());
         System.out.printf(" -- zh keywords %d\n", zhKeywords.size());
+        if(enKeywords.size() == 0 || zhKeywords.size() == 0){
+            return;
+        }
 
         System.out.println("\nCreating graph");
         CrossLanguageGraph graph = new CrossLanguageGraph(prop);
+        if(prop.getProperty("graph.empty_db_before_creation", "false").equals("true")){
+            System.out.println("Truncating Neo4j Database");
+            graph.truncateNeo4jDatabase();
+            System.out.println("");
+        }
         int relationOption = Integer.parseInt(prop.getProperty("graph.match_type", "1"));
         graph.createGraphByKeywords(enKeywords, zhKeywords, relationOption);
 
