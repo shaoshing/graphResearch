@@ -164,7 +164,7 @@ public class CrossLanguageGraph {
                     String createCategoryNodeCypher = String.format(
                             "MERGE (c:%s {id: %d, %s: \"%s\"})",
                             NODE_CATEGORY, categoryId, NODE_CATEGORY_TITLE_ATTR, escapeString(categoryTitle));
-                    neo4jClient().query(createCategoryNodeCypher);
+                    neo4jClient().execute(createCategoryNodeCypher);
 
                     // Add Relation
                     // Cypher: MATCH (c:Category {id: 1}), (p:Page {id: 2}) MERGE p -[:BELONGS_TO_CATEGORY]-> c
@@ -173,7 +173,7 @@ public class CrossLanguageGraph {
                             NODE_CATEGORY, categoryId,
                             NODE_PAGE, NODE_PAGE_EN_ID_ATTR, pageId,
                             RELATION_BELONGS_TO_CATEGORY);
-                    neo4jClient().query(createRelationCypher);
+                    neo4jClient().execute(createRelationCypher);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -184,7 +184,7 @@ public class CrossLanguageGraph {
         String deleteNonSharedCategoriesCypher = "MATCH (c:Category) <-[BELONGS_TO_CATEGORY]- p " +
                 "WITH c, count(p) AS pages WHERE pages = 1 " +
                 "MATCH c <-[b:BELONGS_TO_CATEGORY]- () DELETE c, b;";
-        neo4jClient().query(deleteNonSharedCategoriesCypher);
+        neo4jClient().execute(deleteNonSharedCategoriesCypher);
     }
 
     private boolean testDBConnection(){
@@ -257,7 +257,7 @@ public class CrossLanguageGraph {
                 "MERGE (n:%s {%s: \"%s\", %s: \"%s\"})",
                 nodeKeywordName, NODE_KEYWORD_NAME_ATTR, escapeString(keyword),
                 NODE_KEYWORD_LANG_ATTR, languageName);
-        neo4jClient().query(createKeywordNodeCypher);
+        neo4jClient().execute(createKeywordNodeCypher);
 
         // Create page node
         // Cypher:
@@ -272,10 +272,10 @@ public class CrossLanguageGraph {
                 NODE_PAGE_ZH_ID_ATTR, page.zhId,
                 NODE_PAGE_REDIRECTS_ATTR, Joiner.on("\", \"").join(escapedRedirectedTitles)
                 );
-        neo4jClient().query(createPageNodeCypher);
+        neo4jClient().execute(createPageNodeCypher);
         String setPageNodeTitleCypher = String.format( "MATCH (n:%s {%s: %s}) SET n.%s = \"%s\"",
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId, nodePageTitleAttr, escapeString(page.title));
-        neo4jClient().query(setPageNodeTitleCypher);
+        neo4jClient().execute(setPageNodeTitleCypher);
 
         // Create relation
         // Cypher: MATCH (k:Keyword {Name: "Academic", Language: "En"}), (p:Page {EnId: 2222})
@@ -285,7 +285,7 @@ public class CrossLanguageGraph {
                 nodeKeywordName, NODE_KEYWORD_NAME_ATTR, keyword, NODE_KEYWORD_LANG_ATTR, languageName,
                 NODE_PAGE, NODE_PAGE_EN_ID_ATTR, page.enId,
                 RELATION_NAMES_MAPPING[relationOption], page.score);
-        neo4jClient().query(createRelationCypher);
+        neo4jClient().execute(createRelationCypher);
     }
 
     static private void say(String str, Object... args){
@@ -298,7 +298,7 @@ public class CrossLanguageGraph {
             return;
         }
 
-        neo4jClient().query("MATCH a-[b]-(c) DELETE a, b, c");
-        neo4jClient().query("MATCH a DELETE a");
+        neo4jClient().execute("MATCH a-[b]-(c) DELETE a, b, c");
+        neo4jClient().execute("MATCH a DELETE a");
     }
 }

@@ -21,14 +21,13 @@ public class Neo4jClient {
         this.serverUri = serverUri;
     }
 
-    private HashMap<Integer, JSONObject> cypherCache = new HashMap<Integer, JSONObject>();
+    private HashMap<Integer, Boolean> cypherCache = new HashMap<Integer, Boolean>();
 
     // NEO4J REST API: http://docs.neo4j.org/chunked/stable/rest-api-cypher.html
-    public JSONObject query(String cypherQuery){
+    public void query(String cypherQuery){
         if(cypherCache.get(cypherQuery.hashCode()) != null){
-            return cypherCache.get(cypherQuery.hashCode());
+            return;
         }
-
 
         WebResource resource = Client.create().resource( this.serverUri+"cypher" );
         String query = JSONObject.escape(cypherQuery);
@@ -44,9 +43,7 @@ public class Neo4jClient {
             System.out.println(cypherQuery);
         }
 
-        JSONObject result = (JSONObject)JSONValue.parse(cypherResult);
-        cypherCache.put(cypherQuery.hashCode(), result);
-        return result;
+        cypherCache.put(cypherQuery.hashCode(), true);
     }
 
     public boolean testConnection(){
