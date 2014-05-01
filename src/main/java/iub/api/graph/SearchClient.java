@@ -1,6 +1,8 @@
 package iub.api.graph;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
+
 import wikipedia_Chinese_index_search.*;
 import wikipedia_English_index_search.*;
 
@@ -47,9 +49,9 @@ public class SearchClient {
 
     public ArrayList<Page> search(String keyword, LANGUAGE language, int matchOption){
         if(language == LANGUAGE.ENGLISH){
-            return searchEn(keyword, matchOption);
+            return searchEn(escape(keyword), matchOption);
         }else{
-            return searchZh(keyword, matchOption);
+            return searchZh(escape(keyword), matchOption);
         }
     };
 
@@ -64,7 +66,6 @@ public class SearchClient {
                 results = searchEn.getContent(keyword, enLucenePath);
             }
         } catch (Exception e) {
-            System.out.println("[lucene] Exception raised. Maybe you have an incorrect EN index path.");
             e.printStackTrace();
         }
 
@@ -109,5 +110,12 @@ public class SearchClient {
         }
 
         return pages;
+    }
+
+    private static final String LUCENE_ESCAPE_CHARS = "[\\\\+\\-\\!\\(\\)\\:\\^\\]\\{\\}\\~\\*\\?\\<\\>]";
+    private static final Pattern LUCENE_PATTERN = Pattern.compile(LUCENE_ESCAPE_CHARS);
+    private static final String REPLACEMENT_STRING = "\\\\$0";
+    static public String escape(String keyword){
+        return LUCENE_PATTERN.matcher(keyword).replaceAll(REPLACEMENT_STRING);
     }
 }

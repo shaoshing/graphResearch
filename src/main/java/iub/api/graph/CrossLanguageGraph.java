@@ -227,6 +227,7 @@ public class CrossLanguageGraph {
 
         escaped = escaped.replaceAll(UNICODE, UNICODE_STUB).
                 replaceAll("\\\\", "\\\\\\\\").
+                replaceAll("\"", "\\\\\"").
                 replaceAll(UNICODE_STUB, UNICODE);
 
         return escaped;
