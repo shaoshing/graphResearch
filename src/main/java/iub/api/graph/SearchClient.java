@@ -56,15 +56,15 @@ public class SearchClient {
     private ArrayList<Page> searchEn(String keyword, int matchOption){
         ArrayList<wikipedia_English_index_search.Result> results = new ArrayList<wikipedia_English_index_search.Result>();
         try {
-            if((matchOption | EXACT_MATCH_TITLE) != 0){
+            if(matchOption == EXACT_MATCH_TITLE){
                 results = searchEn.getTitle_ExactMatch(keyword, enLucenePath);
-            }else if((matchOption | PARTIAL_MATCH_TITLE) != 0){
+            }else if(matchOption == PARTIAL_MATCH_TITLE){
                 results = searchEn.getTitle_PartialMatch(keyword, enLucenePath);
-            }else if((matchOption | PARTIAL_MATCH_CONTENT) != 0){
+            }else if(matchOption == PARTIAL_MATCH_CONTENT){
                 results = searchEn.getContent(keyword, enLucenePath);
             }
         } catch (Exception e) {
-            System.out.println("[lucene] Exception raised. Maybe you have a incorrect EN index path.");
+            System.out.println("[lucene] Exception raised. Maybe you have an incorrect EN index path.");
             e.printStackTrace();
         }
 
