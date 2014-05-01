@@ -42,19 +42,19 @@ public class Main {
         System.out.println("\nCreating graph");
         CrossLanguageGraph graph = new CrossLanguageGraph(prop);
         if(prop.getProperty("graph.empty_db_before_creation", "false").equals("true")){
-            System.out.println("Truncating Neo4j Database");
+            System.out.println(" -- truncating Neo4j Database");
             graph.truncateNeo4jDatabase();
-            System.out.println("");
         }
-        int relationOption = Integer.parseInt(prop.getProperty("graph.match_type", "1"));
-        graph.createGraphByKeywords(enKeywords, zhKeywords, relationOption);
 
+        int relationOption = Integer.parseInt(prop.getProperty("graph.match_type", "1"));
+
+        ArrayList<Integer> excludedCategoryIds = loadCategoryIds(prop.getProperty("graph.exclude_categories", ""));
+
+        graph.createGraphByKeywords(enKeywords, zhKeywords, relationOption, excludedCategoryIds);
         System.out.println("\nDone!");
     }
 
     static private ArrayList<String> loadKeywords(String path, String csvColumn) throws IOException {
-
-
         InputStream fis = null;
         try {
             fis = new FileInputStream(path);
@@ -78,5 +78,30 @@ public class Main {
         br.close();
 
         return enKeywords;
+    }
+
+    static private ArrayList<Integer> loadCategoryIds(String path) throws IOException {
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        if(path.equals("")){
+            return ids;
+        }
+
+        InputStream fis = null;
+        try {
+            fis = new FileInputStream(path);
+        } catch (FileNotFoundException e) {
+            System.out.printf(" -- Unable to load category id CSV from %s\n", path);
+            throw e;
+        }
+        BufferedReader br = new BufferedReader(new InputStreamReader(fis, Charset.forName("UTF-8")));
+
+        String id;
+        while ((id = br.readLine()) != null) {
+            ids.add(Integer.parseInt(id));
+        }
+        br.close();
+        System.out.printf(" -- %d categories to be excluded.\n", ids.size());
+
+        return ids;
     }
 }

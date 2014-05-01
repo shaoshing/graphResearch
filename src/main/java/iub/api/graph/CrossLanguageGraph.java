@@ -45,12 +45,16 @@ public class CrossLanguageGraph {
     static public final int CREATE_PARTIAL_MATCH_CONTENT_RELATION= 4;
 
     private Properties config;
+    private HashMap<Integer, Boolean> excludedCategoryIds;
 
     public CrossLanguageGraph(Properties config){
         this.config = config;
+        this.excludedCategoryIds = new HashMap<Integer, Boolean>();
     }
 
-    public void createGraphByKeywords(ArrayList<String> enKeywords, ArrayList<String> zhKeywords, int relationOptions){
+    public void createGraphByKeywords(ArrayList<String> enKeywords,
+            ArrayList<String> zhKeywords, int relationOptions, ArrayList<Integer> excludedCategoryIds){
+
         if(!neo4jClient().testConnection()){
             say("[graph] Unable to connect to neo4j with " + config.getProperty(CONFIG_NEO4J_URL));
             return;
@@ -58,6 +62,10 @@ public class CrossLanguageGraph {
 
         if(!testDBConnection()){
             return;
+        }
+
+        for(int id: excludedCategoryIds){
+            this.excludedCategoryIds.put(id, true);
         }
 
         say("[graph] Creating keywords and wiki graph - EN");
@@ -143,6 +151,10 @@ public class CrossLanguageGraph {
                 say(" -- creating neo4j nodes");
                 while(result.next()){
                     int categoryId = result.getInt("category_id");
+                    if(this.excludedCategoryIds.get(categoryId) != null){
+                        continue;
+                    }
+
                     String categoryTitle = result.getString("category_title");
                     int pageId = result.getInt("page_id");
 

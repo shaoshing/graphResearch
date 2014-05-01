@@ -86,11 +86,11 @@ public class SearchClient {
     private ArrayList<Page> searchZh(String keyword, int matchOption){
         ArrayList<wikipedia_Chinese_index_search.Result> results = new ArrayList<wikipedia_Chinese_index_search.Result>();
         try {
-            if((matchOption | EXACT_MATCH_TITLE) != 0){
+            if(matchOption == EXACT_MATCH_TITLE){
                 results = searchZh.getTitle_ExactMatch(keyword, zhLucenePath);
-            }else if((matchOption | PARTIAL_MATCH_TITLE) != 0){
+            }else if(matchOption == PARTIAL_MATCH_TITLE){
                 results = searchZh.getTitle_PartialMatch(keyword, zhLucenePath);
-            }else if((matchOption | PARTIAL_MATCH_CONTENT) != 0){
+            }else if(matchOption == PARTIAL_MATCH_CONTENT){
                 results = searchZh.getContent(keyword, zhLucenePath);
             }
         } catch (Exception e) {
